@@ -3,12 +3,6 @@
 body{
     background-image: linear-gradient(#fafafa, #f7d7e3);
     color: rgb(114, 112, 111);
-    font-family: "Syne", sans-serif;
-}
-.logo{
-    width: 5vw,
-}
-
-.navbar{
-    display: flex;
+    font-family: "Sansation", sans-serif;
+    min-height: 100vh;
 }
