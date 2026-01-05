@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400..800&display=swap');
+
+body{
+    background-image: linear-gradient(#fafafa, #f7d7e3);
+    color: rgb(114, 112, 111);
+    font-family: "Syne", sans-serif;
+}
+.logo{
+    width: 5vw,
+}
+
+.navbar{
+    display: flex;
+}
