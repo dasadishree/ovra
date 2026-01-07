@@ -12,25 +12,34 @@
                 <h3 class="font-bold text-2xl tracking-tighter">OVRA</h3>
             </div>
             <ul class="hidden md:flex items-center gap-8">
-                <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60">WHO WE ARE</li>
+                <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
                 <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60">WHAT WE DO</li>
                 <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60">NEWS & EVENTS</li>
                 <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60">GET INVOLVED</li>
             </ul>
 
             <div class="flex items-center gap-4">
-                <div class="p-2 border border-gray-300 rounded-full cursor-pointer hover:bg-white transition">
-                    <img src="logo.png" class="w-[20px]">
-                </div>
-                <button class="px-6 py-2 border-2 border-gray rounded-full text-xs font-black text-black hover:bg-black hover:text-white transition">CHAT</button>
+                <button class="icon-btn" title="Instagram">
+                    <img src="ig.png" alt="Instagram">
+                </button>
+                <button class="icon-btn" title="Chatbot">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="currentColor"/>
+                        <circle cx="8" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="12" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="16" cy="10" r="1" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="nav-btn">Donate</button>
+                <button class="nav-btn">Join</button>
             </div>
         </nav> 
 
 
         <!-- hero section -->
         <section class="flex flex-col items-center justify-center text-center pt-20 pb-10"> 
-            <h1 class="text-[100px] mod:text-[120px] font-bold leading-[0.9] tracking-tighter">Ovra  
-                <span class="inline-block w-[200px] h-[100px] md:w-[400px] md:h-[200px] rounded-full overflow-hidden align-middle mx-2 border-2 border-white shadcow-sm">
+            <h1 class="text-[140px] mod:text-[140px] font-bold leading-[0.9] tracking-tighter">Ovra  
+                <span class="inline-block w-[350px] h-[170px] md:w-[400px] md:h-[180px] rounded-full overflow-hidden align-middle mx-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform">
                     <img src="pad.avif" class="w-full h-full object-cover" alt="Pad">
                 </span>
                 Supporting
@@ -38,10 +47,23 @@
             </h1>
 
             <div class="flex items-center gap-6 mt-12">
-                <button class="px-10 py-4 bg-black text-white rounded-full font-bold text-sm hover:scale-105 transition-transform">CHAT WITH <br>OUR AI EXPERT</button>
-                <button class="px-10 py-4 bg-black text-white rounded-full font-bold text-sm hover:scale-105 transition-transform">FOLLOW ON <br>INSTAGRAM</button>
+                <button class="btn-primary">Donate</button>
+                <button class="btn-secondary">Join The Initiative</button>
             </div>
-        </section>  
+        </section>
+        
+        <!-- bottom navbar section -->
+        <section class="border-t border-gray-300 py-6 px-10">
+            <div class="flex justify-center items-center gap-3">
+                <span class="text-sm font-bold tracking-wider uppercase text-gray-600">Scroll Down</span>
+                <div class="w-10 h-10 rounded-full border-2 border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 hover:border-gray-600 transition-colors group">
+                    <svg class="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        
         <!-- partners -->
 
         <!-- what we do -->

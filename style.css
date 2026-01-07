@@ -1,8 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Syne:wght@400..800&display=swap');
 
+/* fonts */
+@font-face{
+    font-family: "BauhausRegular";
+    src: url("./fonts/BauhausRegular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family:"BauhausBold";
+    src: url("./fonts/BauhausBold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
 body{
     background-image: linear-gradient(#fafafa, #f7d7e3);
-    color: rgb(114, 112, 111);
-    font-family: "Sansation", sans-serif;
+    color: #2d2d2d;
+    font-family: "BauhausRegular", sans-serif;
     min-height: 100vh;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+}
+
+.nav-btn {
+    background: transparent;
+    color: #333;
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.875rem;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-btn:hover {
+    background: #333;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
 }
