@@ -26,16 +26,23 @@ body{
 .btn-primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1rem 2.5rem;
+    padding: 0.875rem 2rem;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.875rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+@media (min-width: 640px) {
+    .btn-primary {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
 }
 
 .btn-primary:hover {
@@ -46,16 +53,23 @@ body{
 .btn-secondary {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
-    padding: 1rem 2.5rem;
+    padding: 0.875rem 2rem;
     border-radius: 50px;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.875rem;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+@media (min-width: 640px) {
+    .btn-secondary {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
 }
 
 .btn-secondary:hover {
@@ -66,15 +80,29 @@ body{
 .nav-btn {
     background: transparent;
     color: #333;
-    padding: 0.5rem 1.25rem;
-    border-radius: 25px;
+    padding: 0.35rem 0.875rem;
+    border-radius: 20px;
     font-weight: bold;
-    font-size: 0.875rem;
+    font-size: 0.7rem;
     border: 2px solid #333;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+@media (min-width: 640px) {
+    .nav-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+    }
 }
 
 .nav-btn:hover {
@@ -84,8 +112,8 @@ body{
 }
 
 .icon-btn {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: 2px solid #333;
     background: transparent;
@@ -96,12 +124,53 @@ body{
     transition: all 0.3s ease;
 }
 
+@media (min-width: 640px) {
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 .icon-btn:hover {
     background: #333;
     transform: scale(1.1);
 }
 
 .icon-btn img {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
+}
+
+@media (min-width: 640px) {
+    .icon-btn img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .icon-btn img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Pill shape with convex top and concave bottom */
+.pill-shape {
+    /* Top: convex curve (rounded), Bottom: concave curve (inward) */
+    clip-path: url(#pillClipPath);
+}
+
+/* SVG for clip-path definition */
+.pill-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
 }
