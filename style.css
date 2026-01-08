@@ -13,8 +13,6 @@
     font-weight: bold;
     font-style: normal;
 }
-
-
 body{
     background-image: linear-gradient(#fafafa, #f7d7e3);
     color: #2d2d2d;
@@ -22,11 +20,11 @@ body{
     min-height: 100vh;
 }
 
-/* button styles */
+/* responsive button styles */
 .btn-primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: bold;
     font-size: 0.875rem;
@@ -37,23 +35,32 @@ body{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 @media (min-width: 640px) {
+    .btn-primary {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9rem;
+    }
+}
+@media (min-width: 768px) {
+    .btn-primary {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+    }
+}
+@media (min-width: 1024px) {
     .btn-primary {
         padding: 1rem 2.5rem;
         font-size: 1rem;
     }
 }
-
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
-
 .btn-secondary {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: bold;
     font-size: 0.875rem;
@@ -64,56 +71,55 @@ body{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
 @media (min-width: 640px) {
+    .btn-secondary {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9rem;
+    }
+}
+@media (min-width: 768px) {
+    .btn-secondary {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+    }
+}
+@media (min-width: 1024px) {
     .btn-secondary {
         padding: 1rem 2.5rem;
         font-size: 1rem;
     }
 }
-
 .btn-secondary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
 }
-
 .nav-btn {
     background: transparent;
     color: #333;
-    padding: 0.35rem 0.875rem;
-    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    border-radius: 25px;
     font-weight: bold;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     border: 2px solid #333;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
-@media (min-width: 640px) {
-    .nav-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.75rem;
-    }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .nav-btn {
         padding: 0.5rem 1.25rem;
         font-size: 0.875rem;
     }
 }
-
 .nav-btn:hover {
     background: #333;
     color: white;
     transform: translateY(-1px);
 }
-
 .icon-btn {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 2px solid #333;
     background: transparent;
@@ -123,54 +129,23 @@ body{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .icon-btn {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
     }
 }
-
-@media (min-width: 1024px) {
-    .icon-btn {
-        width: 36px;
-        height: 36px;
-    }
-}
-
 .icon-btn:hover {
     background: #333;
     transform: scale(1.1);
 }
-
 .icon-btn img {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
 }
-
-@media (min-width: 640px) {
+@media (min-width: 768px) {
     .icon-btn img {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
     }
-}
-
-@media (min-width: 1024px) {
-    .icon-btn img {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Pill shape with convex top and concave bottom */
-.pill-shape {
-    /* Top: convex curve (rounded), Bottom: concave curve (inward) */
-    clip-path: url(#pillClipPath);
-}
-
-/* SVG for clip-path definition */
-.pill-svg {
-    position: absolute;
-    width: 0;
-    height: 0;
 }
