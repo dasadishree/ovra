@@ -53,6 +53,18 @@ body{
         font-size: 1rem;
     }
 }
+@media (min-width: 1280px) {
+    .btn-primary {
+        padding: 1.125rem 2.75rem;
+        font-size: 1.125rem;
+    }
+}
+@media (min-width: 1536px) {
+    .btn-primary {
+        padding: 1.25rem 3rem;
+        font-size: 1.25rem;
+    }
+}
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
@@ -89,6 +101,18 @@ body{
         font-size: 1rem;
     }
 }
+@media (min-width: 1280px) {
+    .btn-secondary {
+        padding: 1.125rem 2.75rem;
+        font-size: 1.125rem;
+    }
+}
+@media (min-width: 1536px) {
+    .btn-secondary {
+        padding: 1.25rem 3rem;
+        font-size: 1.25rem;
+    }
+}
 .btn-secondary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
@@ -110,6 +134,18 @@ body{
     .nav-btn {
         padding: 0.5rem 1.25rem;
         font-size: 0.875rem;
+    }
+}
+@media (min-width: 1280px) {
+    .nav-btn {
+        padding: 0.625rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+@media (min-width: 1536px) {
+    .nav-btn {
+        padding: 0.75rem 1.75rem;
+        font-size: 1.125rem;
     }
 }
 .nav-btn:hover {
@@ -135,6 +171,18 @@ body{
         height: 40px;
     }
 }
+@media (min-width: 1280px) {
+    .icon-btn {
+        width: 48px;
+        height: 48px;
+    }
+}
+@media (min-width: 1536px) {
+    .icon-btn {
+        width: 56px;
+        height: 56px;
+    }
+}
 .icon-btn:hover {
     background: #333;
     transform: scale(1.1);
@@ -147,5 +195,17 @@ body{
     .icon-btn img {
         width: 20px;
         height: 20px;
+    }
+}
+@media (min-width: 1280px) {
+    .icon-btn img {
+        width: 24px;
+        height: 24px;
+    }
+}
+@media (min-width: 1536px) {
+    .icon-btn img {
+        width: 28px;
+        height: 28px;
     }
 }

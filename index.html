@@ -3,19 +3,31 @@
         <title>OVRA</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        screens: {
+                        '3xl': '1920px',
+                        '4xl': '2560px',
+                        }
+                    }
+                }
+            }
+        </script>
     </head>
     <body>
         <!-- navbar -->
-        <nav class="flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 md:py-6">
+        <nav class="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 py-4 md:py-6 lg:py-8 xl:py-10 2xl:py-12">
             <div class="flex items-center gap-2 md:gap-3">
                 <img src="logo.png" alt="OVRA Logo" class="w-[32px] md:w-[40px] h-auto">
-                <h3 class="font-bold text-xl md:text-2xl tracking-tighter">OVRA</h3>
+                <h3 class="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl tracking-tighter">OVRA</h3>
             </div>
-            <ul class="hidden md:flex items-center gap-6 lg:gap-8">
-                <li class="text-sm lg:text-base xl:text-lg font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
-                <li class="text-sm lg:text-base xl:text-lg font-extrabold tracking-widest cursor-pointer hover:opacity-60">WHAT WE DO</li>
-                <li class="text-sm lg:text-base xl:text-lg font-extrabold tracking-widest cursor-pointer hover:opacity-60">NEWS & EVENTS</li>
-                <li class="text-sm lg:text-base xl:text-lg font-extrabold tracking-widest cursor-pointer hover:opacity-60">GET INVOLVED</li>
+            <ul class="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60">WHAT WE DO</li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60">NEWS & EVENTS</li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60">GET INVOLVED</li>
             </ul>
 
             <div class="flex items-center gap-4">
@@ -37,14 +49,15 @@
 
 
         <!-- hero section -->
-        <section class="flex flex-col items-center justify-center text-center pt-12 md:pt-20 pb-8 md:pb-10 px-4"> 
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.9] tracking-tighter">Ovra  
-                <span class="inline-block w-[200px] h-[100px] sm:w-[250px] sm:h-[120px] md:w-[300px] md:h-[140px] lg:w-[350px] lg:h-[170px] xl:w-[400px] xl:h-[180px] rounded-full overflow-hidden align-middle mx-2 md:mx-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform">
-                    <img src="pad.avif" class="w-full h-full object-cover" alt="Pad">
-                </span>
-                Supporting
+        <section class="flex flex-col items-center justify-center text-center pt-6 md:pt-12 lg:pt-16 xl:pt-20 2xl:pt-24 pb-8 md:pb-10 lg:pb-12 xl:pb-16 2xl:pb-20 px-4"> 
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-[0.9] tracking-tighter">
+                Ovra Supporting
                 <br>Women's Health Globally
             </h1>
+            
+            <div class="w-[200px] h-[100px] sm:w-[250px] sm:h-[120px] md:w-[300px] md:h-[140px] lg:w-[350px] lg:h-[170px] xl:w-[400px] xl:h-[180px] 2xl:w-[500px] 2xl:h-[220px] rounded-full overflow-hidden mt-6 md:mt-8 xl:mt-10 2xl:mt-12 shadow-[0_20px_60px_rgba(0,0,0,0.15)] hover:scale-105 transition-transform">
+                <img src="pad.avif" class="w-full h-full object-cover" alt="Pad">
+            </div>
 
             <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-6 mt-8 md:mt-12">
                 <button class="btn-primary">Donate</button>
@@ -55,9 +68,9 @@
         <!-- bottom navbar section -->
         <section class="border-t border-gray-300 py-6 px-10">
             <div class="flex justify-center items-center gap-3">
-                <span class="text-sm font-bold tracking-wider uppercase text-gray-600">Scroll Down</span>
-                <div class="w-10 h-10 rounded-full border-2 border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 hover:border-gray-600 transition-colors group">
-                    <svg class="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span class="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold tracking-wider uppercase text-gray-600">Scroll Down</span>
+                <div class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full border-2 border-gray-600 flex items-center justify-center cursor-pointer hover:bg-gray-600 hover:border-gray-600 transition-colors group">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10 text-gray-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                     </svg>
                 </div>
@@ -65,71 +78,71 @@
         </section>
 
         <!-- what we do section -->
-        <section class="py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-10 lg:px-20 bg-gradient-to-b from-white to-purple-100">
+        <section class="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 bg-gradient-to-b from-white to-purple-100">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-300 font-bold mb-8 md:mb-12 tracking-tighter text-center uppercase">What We Do</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-300 font-bold mb-8 md:mb-12 xl:mb-16 2xl:mb-20 tracking-tighter text-center uppercase">What We Do</h2>
                 
-                <div class="text-center mb-10 md:mb-16">
-                    <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 md:mb-6 tracking-tighter">Our Mission Is Company Mission Goes Here</h3>
+                <div class="text-center mb-10 md:mb-16 xl:mb-20 2xl:mb-24">
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 md:mb-6 xl:mb-8 2xl:mb-10 tracking-tighter">Our Mission Is Company Mission Goes Here</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16">
 
                     <!-- join intiiaitve -->
-                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
-                        <div class="absolute top-4 md:top-6 left-4 md:left-6 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg">
-                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px] 2xl:min-h-[500px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
+                        <div class="absolute top-4 md:top-6 lg:top-8 xl:top-10 left-4 md:left-6 lg:left-8 xl:left-10 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                         </div>
                         
-                        <div class="mt-16 md:mt-20 flex-1">
-                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 tracking-tighter">Join The Initiative</h4>
-                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 md:mb-8">Join our iniative and help idk what to write hee how to word it</p>
+                        <div class="mt-16 md:mt-20 lg:mt-24 xl:mt-28 2xl:mt-32 flex-1">
+                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 md:mb-4 xl:mb-5 2xl:mb-6 tracking-tighter">Join The Initiative</h4>
+                            <p class="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl text-gray-700 leading-relaxed mb-6 md:mb-8 xl:mb-10 2xl:mb-12">Join our iniative and help idk what to write hee how to word it</p>
                         </div>
 
-                        <div class="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute bottom-4 md:bottom-6 lg:bottom-8 xl:bottom-10 right-4 md:right-6 lg:right-8 xl:right-10 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7m0 0H9m8 0v8"></path>
                             </svg>
                         </div>
                     </div>
 
                     <!--donate -->
-                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
-                        <div class="absolute top-4 md:top-6 left-4 md:left-6 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center shadow-lg">
-                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px] 2xl:min-h-[500px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
+                        <div class="absolute top-4 md:top-6 lg:top-8 xl:top-10 left-4 md:left-6 lg:left-8 xl:left-10 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
                         
-                        <div class="mt-16 md:mt-20 flex-1">
-                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 tracking-tighter">Make a Donation</h4>
-                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 md:mb-8">Support our mission with a contribution directly impacting women's health programs and resources worldwide.</p>
+                        <div class="mt-16 md:mt-20 lg:mt-24 xl:mt-28 2xl:mt-32 flex-1">
+                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 md:mb-4 xl:mb-5 2xl:mb-6 tracking-tighter">Make a Donation</h4>
+                            <p class="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl text-gray-700 leading-relaxed mb-6 md:mb-8 xl:mb-10 2xl:mb-12">Support our mission with a contribution directly impacting women's health programs and resources worldwide.</p>
                         </div>
 
-                        <div class="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute bottom-4 md:bottom-6 lg:bottom-8 xl:bottom-10 right-4 md:right-6 lg:right-8 xl:right-10 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7m0 0H9m8 0v8"></path>
                             </svg>
                         </div>
                     </div>
 
                     <!-- ai expert -->
-                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
-                        <div class="absolute top-4 md:top-6 left-4 md:left-6 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg">
-                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="action-card bg-white/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 xl:p-12 border border-gray-200 relative min-h-[300px] md:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px] 2xl:min-h-[500px] flex flex-col hover:bg-gradient-to-br hover:from-pink-200 hover:to-pink-300 transition-all duration-300 cursor-pointer group">
+                        <div class="absolute top-4 md:top-6 lg:top-8 xl:top-10 left-4 md:left-6 lg:left-8 xl:left-10 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
                             </svg>
                         </div>
                         
-                        <div class="mt-16 md:mt-20 flex-1">
-                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 tracking-tighter">Chat with our AI Expert</h4>
-                            <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 md:mb-8">Get instant answers and guidance about women's health questions from our AI-powered expert assistant available 24/7.</p>
+                        <div class="mt-16 md:mt-20 lg:mt-24 xl:mt-28 2xl:mt-32 flex-1">
+                            <h4 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-3 md:mb-4 xl:mb-5 2xl:mb-6 tracking-tighter">Chat with our AI Expert</h4>
+                            <p class="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl text-gray-700 leading-relaxed mb-6 md:mb-8 xl:mb-10 2xl:mb-12">Get instant answers and guidance about women's health questions from our AI-powered expert assistant available 24/7.</p>
                         </div>
 
-                        <div class="absolute bottom-4 md:bottom-6 right-4 md:right-6 w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute bottom-4 md:bottom-6 lg:bottom-8 xl:bottom-10 right-4 md:right-6 lg:right-8 xl:right-10 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full bg-gray-800 group-hover:bg-white flex items-center justify-center transition-all duration-300">
+                            <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10 text-white group-hover:text-gray-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7m0 0H9m8 0v8"></path>
                             </svg>
                         </div>
@@ -140,35 +153,47 @@
 
         <!--our impact section-->
         <div id="impact-wrapper" style="position: relative;">
-            <section id="impact-section" class="sticky top-0 py-16 md:py-24 lg:py-32 px-4 sm:px-6 md:px-10 lg:px-20 min-h-screen flex flex-col overflow-hidden" style="background-image: linear-gradient(#fafafa, #f7d7e3);">
+            <section id="impact-section" class="sticky top-0 py-8 md:py-12 lg:py-16 xl:py-20 2xl:py-24 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 h-screen flex flex-col overflow-hidden" style="background-image: linear-gradient(#fafafa, #f7d7e3);">
+            <div class="absolute inset-0 opacity-20 z-0 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, rgba(0,0,0,0.1) 1px, transparent 0); background-size: 40px 40px;"></div>
+            
             <div id="semicircle-container" class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 transition-transform duration-1000 ease-in-out" style="transform: translateX(-25%);">
-                <svg class="w-[150%] h-[150%] max-w-[800px] max-h-[800px]" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
-                    <ellipse cx="200" cy="200" rx="200" ry="200" fill="#f7d7e3" opacity="0.8"/>
+                <svg class="w-[250%] h-full max-w-[1600px]" viewBox="0 0 2000 800" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="pillGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#f7d7e3;stop-opacity:0.9" />
+                            <stop offset="50%" style="stop-color:#f8c8d8;stop-opacity:0.85" />
+                            <stop offset="100%" style="stop-color:#f7d7e3;stop-opacity:0.9" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="0" y="0" width="2000" height="800" rx="400" ry="400" fill="url(#pillGradient)"/>
                 </svg>
             </div>
             
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px] rounded-full bg-gradient-to-br from-pink-400 via-purple-400 to-pink-500 opacity-70 blur-3xl pointer-events-none z-10" style="transform: translate(15%, -15%);"></div>
+            <div class="absolute bottom-0 left-0 w-[500px] h-[500px] md:w-[600px] md:h-[600px] lg:w-[700px] lg:h-[700px] xl:w-[800px] xl:h-[800px] 2xl:w-[900px] 2xl:h-[900px] rounded-full bg-gradient-to-tr from-purple-400 via-pink-400 to-purple-500 opacity-70 blur-3xl pointer-events-none z-10" style="transform: translate(-15%, 15%);"></div>
+            
             <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col relative z-10">
-                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-400 font-bold mb-3 md:mb-4 tracking-tighter text-center uppercase relative z-20">Our Impact</h2>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-12 md:mb-16 lg:mb-20 tracking-tighter text-center relative z-20">Together, We're Making A Difference</h3>
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-gray-400 font-bold mb-2 md:mb-3 mt-8 md:mt-12 xl:mt-16 2xl:mt-20 tracking-tighter text-center uppercase relative z-20">Our Impact</h2>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-bold mb-0 tracking-tighter text-center relative z-20">Together, We're Making A Difference</h3>
                 
-                <div class="relative flex-1 overflow-hidden z-20 min-h-[350px] md:min-h-[400px] lg:min-h-[450px] flex items-center justify-center">
-                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out z-30 py-8" data-slide="0">
-                        <div class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[200px] 2xl:text-[250px] font-bold tracking-tighter text-purple-600 leading-none mb-3 md:mb-4 drop-shadow-lg">1234</div>
-                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-700 font-semibold">pads given out</p>
+                <div class="relative flex-1 overflow-hidden z-20 flex items-center justify-center -mt-4">
+                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out z-30" data-slide="0">
+                        <div class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[180px] 3xl:text-[250px] 4xl:text-[320px] font-bold tracking-tighter text-purple-600 leading-none mb-2 md:mb-3 drop-shadow-lg" style="text-shadow: 0 0 30px rgba(147, 51, 234, 0.3), 0 0 60px rgba(147, 51, 234, 0.2);">1234</div>
+                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-700 font-semibold">pads given out</p>
                     </div>
                     
-                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out opacity-0 translate-x-full z-30 py-8" data-slide="1">
-                        <div class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[200px] 2xl:text-[250px] font-bold tracking-tighter text-purple-600 leading-none mb-3 md:mb-4 drop-shadow-lg">5678</div>
-                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-700 font-semibold">lives impacted</p>
+                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out opacity-0 translate-x-full z-30" data-slide="1">
+                        <div class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[180px] 3xl:text-[250px] 4xl:text-[320px] font-bold tracking-tighter text-purple-600 leading-none mb-1 md:mb-2 drop-shadow-lg" style="text-shadow: 0 0 30px rgba(147, 51, 234, 0.3), 0 0 60px rgba(147, 51, 234, 0.2);">5678</div>
+                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-700 font-semibold">lives impacted</p>
                     </div>
                     
-                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out opacity-0 translate-x-full z-30 py-8" data-slide="2">
-                        <div class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[200px] 2xl:text-[250px] font-bold tracking-tighter text-purple-600 leading-none mb-3 md:mb-4 drop-shadow-lg">90+</div>
-                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-700 font-semibold">communities reached</p>
+                    <div class="impact-slide absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ease-in-out opacity-0 translate-x-full z-30" data-slide="2">
+                        <div class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[180px] 3xl:text-[250px] 4xl:text-[320px] font-bold tracking-tighter text-purple-600 leading-none mb-2 md:mb-3 drop-shadow-lg" style="text-shadow: 0 0 30px rgba(147, 51, 234, 0.3), 0 0 60px rgba(147, 51, 234, 0.2);">90+</div>
+                        <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-gray-700 font-semibold">communities reached</p>
                     </div>
                 </div>
                 
-                <div class="flex justify-center items-center gap-2 md:gap-3 mt-12 md:mt-16 mb-6 md:mb-8 z-20 relative">
+                <div class="flex justify-center items-center gap-2 md:gap-3 mt-0 mb-8 md:mb-12 z-20 relative">
                     <div class="impact-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-800 transition-all duration-300" data-dot="0"></div>
                     <div class="impact-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 transition-all duration-300" data-dot="1"></div>
                     <div class="impact-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 transition-all duration-300" data-dot="2"></div>
@@ -178,6 +203,17 @@
             <div style="height: 300vh; pointer-events: none;"></div>
         </div>
         
+        <!-- what we do section -->
+        <section class="py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 bg-gradient-to-b from-white to-purple-100">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-300 font-bold mb-8 md:mb-12 xl:mb-16 2xl:mb-20 tracking-tighter text-center uppercase">Next Sewction</h2>
+                
+                <div class="text-center mb-10 md:mb-16 xl:mb-20 2xl:mb-24">
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 md:mb-6 xl:mb-8 2xl:mb-10 tracking-tighter">blahahahashashsh</h3>
+                </div>
+            </div>
+        </section>
+
         <script src="script.js"></script>
     </body>
 </htmL>

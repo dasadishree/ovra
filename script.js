@@ -6,6 +6,8 @@ let currentSlide = 0;
 let isTransitioning = false;
 let scrollAccumulator = 0;
 const scrollThreshold = 80;
+let lockedScrollPosition = 0;
+let isScrollLocked = false;
 function updateSlides() {
     slides.forEach((slide, index) => {
         if (index === currentSlide) {
@@ -107,14 +109,79 @@ function handleWheel(e) {
         }
     }
 }
-impactSection.addEventListener('wheel', handleWheel, { passive: false });
-document.addEventListener('wheel', function(e) {
-    if (checkSectionActive() && !isTransitioning) {
-        if (currentSlide > 0 && currentSlide < 2 && e.deltaY !== 0) {
+
+function lockScrollPosition() {
+    const rect = impactSection.getBoundingClientRect();
+    const isInSection = rect.top <= 0 && rect.bottom >= window.innerHeight;
+    
+    if (isInSection) {
+        if (!isScrollLocked) {
+            lockedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+            isScrollLocked = true;
+        }
+    } else {
+        isScrollLocked = false;
+    }
+}
+
+function handleScroll() {
+    if (isScrollLocked && checkSectionActive()) {
+        if ((currentSlide > 0) || (currentSlide < 2)) {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentSlide > 0 && currentSlide < 2 && Math.abs(currentScroll - lockedScrollPosition) > 5) {
+                window.scrollTo({ top: lockedScrollPosition, behavior: 'auto' });
+            }
+        }
+        if ((currentSlide === 0) || (currentSlide === 2)) {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (!checkSectionActive()) {
+                isScrollLocked = false;
+            }
+        }
+    } else {
+        lockScrollPosition();
+    }
+}
+
+function preventScroll(e) {
+    if (!checkSectionActive() || isTransitioning) {
+        return;
+    }
+    
+    if (!isScrollLocked) {
+        lockedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        isScrollLocked = true;
+    }
+    
+    if (e.deltaY < 0) {
+        if (currentSlide > 0) {
             e.preventDefault();
             e.stopPropagation();
             handleWheel(e);
+            return false;
+        }
+        else {
+            isScrollLocked = false;
+            return;
         }
     }
-}, { passive: false });
+    
+    if (e.deltaY > 0) {
+        if (currentSlide < 2) {
+            e.preventDefault();
+            e.stopPropagation();
+            handleWheel(e);
+            return false;
+        }
+        else {
+            isScrollLocked = false;
+            return;
+        }
+    }
+}
+
+impactSection.addEventListener('wheel', handleWheel, { passive: false });
+document.addEventListener('wheel', preventScroll, { passive: false });
+window.addEventListener('scroll', handleScroll, { passive: false });
+setInterval(lockScrollPosition, 100);
 updateSlides();
