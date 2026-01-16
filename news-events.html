@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>News & Events - OVRA</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        screens: {
+                        '3xl': '1920px',
+                        '4xl': '2560px',
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- navbar -->
+        <nav class="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 py-3 md:py-4 lg:py-8 xl:py-8 2xl:py-9">
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="index.html"><img src="logo.png" alt="OVRA Logo" class="w-[32px] md:w-[40px] h-auto"></a>
+                <a href="index.html"><h3 class="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl tracking-tighter">OVRA</h3></a>
+            </div>
+            <ul class="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="news-events.html">NEWS & EVENTS</a></li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="get-involved.html">GET INVOLVED</a></li>
+            </ul>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/ovra.health/" target="_blank" class="icon-btn" title="Instagram">
+                    <img src="ig.png" alt="Instagram">
+                </a>
+                <button class="icon-btn" title="Chatbot">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="currentColor"/>
+                        <circle cx="8" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="12" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="16" cy="10" r="1" fill="currentColor"/>
+                    </svg>
+                </button>
+                <a href="https://gofund.me/160490e01" target="_blank"><button class="nav-btn">Donate</button></a>
+                <a href="https://www.instagram.com/ovra.health/" target="_blank"><button class="nav-btn">Join</button></a>
+            </div>
+        </nav>
+
+        <!-- News & Events Section -->
+        <section class="py-8 md:py-12 lg:py-16 xl:py-20 2xl:py-24" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
+            <div class="w-full">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-300 font-bold mb-8 md:mb-12 xl:mb-16 2xl:mb-20 tracking-tighter text-center uppercase px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32">News & Events</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-0 w-full">
+                    <!-- Left: Portrait Image - Full Width Column -->
+                    <div class="lg:col-span-1 w-full">
+                        <div class="w-full h-[70vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+                            <img src="news-portrait.jpg" alt="News Portrait" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    
+                    <!-- Center: Text about portrait image - Full Width Column -->
+                    <div class="lg:col-span-1 flex flex-col justify-center px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 md:py-12 lg:py-16">
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tighter">Latest Updates</h3>
+                        <p class="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed mb-4">
+                            Our recent initiative has made a significant impact in communities across the region. Through our partnerships and dedicated efforts, we've been able to distribute eco-friendly menstrual products to hundreds of women in need.
+                        </p>
+                        <p class="text-base md:text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed">
+                            This month, we're expanding our reach to three new communities, bringing our total to over 90 locations where we're actively supporting women's reproductive health.
+                        </p>
+                    </div>
+                    
+                    <!-- Right: 2-3 Horizontal Images Stacked - Full Width Column -->
+                    <div class="lg:col-span-1 space-y-0 w-full">
+                        <div class="w-full h-[30vh] md:h-[26.66vh] lg:h-[30vh] overflow-hidden">
+                            <img src="news-horizontal-1.jpg" alt="News Image 1" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-full h-[30vh] md:h-[26.66vh] lg:h-[30vh] overflow-hidden">
+                            <img src="news-horizontal-2.jpg" alt="News Image 2" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-full h-[30vh] md:h-[26.66vh] lg:h-[30vh] overflow-hidden">
+                            <img src="news-horizontal-3.jpg" alt="News Image 3" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>
