@@ -1,3 +1,8 @@
+// Check if we're on mobile (md breakpoint is 768px)
+function isMobile() {
+    return window.innerWidth < 768;
+}
+
 const impactSection = document.getElementById('impact-section');
 const slides = document.querySelectorAll('.impact-slide');
 const dots = document.querySelectorAll('.impact-dot');
@@ -8,11 +13,6 @@ let scrollAccumulator = 0;
 const scrollThreshold = 80;
 let lockedScrollPosition = 0;
 let isScrollLocked = false;
-
-// Check if we're on mobile (md breakpoint is 768px)
-function isMobile() {
-    return window.innerWidth < 768;
-}
 function updateSlides() {
     slides.forEach((slide, index) => {
         if (index === currentSlide) {
@@ -186,8 +186,8 @@ function preventScroll(e) {
     }
 }
 
-// Only enable scroll effects on desktop
-if (!isMobile()) {
+// Only enable scroll effects on desktop if impact section exists
+if (impactSection && !isMobile()) {
     impactSection.addEventListener('wheel', handleWheel, { passive: false });
     document.addEventListener('wheel', preventScroll, { passive: false });
     window.addEventListener('scroll', handleScroll, { passive: false });
@@ -197,18 +197,32 @@ if (!isMobile()) {
 
 // Update on window resize
 window.addEventListener('resize', () => {
-    if (!isMobile()) {
+    if (impactSection && !isMobile()) {
         updateSlides();
     }
 });
 
-// Mobile Menu Toggle
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuSpans = mobileMenuButton?.querySelectorAll('span');
-
-if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
+// Mobile Menu Toggle - Initialize on DOM ready
+function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (!mobileMenuButton || !mobileMenu) {
+        console.log('Mobile menu elements not found');
+        return; // Exit if elements don't exist
+    }
+    
+    const menuSpans = mobileMenuButton.querySelectorAll('span');
+    
+    // Remove any existing event listeners by removing and re-adding
+    const newButton = mobileMenuButton.cloneNode(true);
+    const newSpans = newButton.querySelectorAll('span');
+    mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
+    
+    newButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         const isOpen = !mobileMenu.classList.contains('hidden');
         
         if (isOpen) {
@@ -219,10 +233,10 @@ if (mobileMenuButton && mobileMenu) {
             document.body.style.overflow = '';
             
             // Reset hamburger icon
-            if (menuSpans) {
-                menuSpans[0].style.transform = '';
-                menuSpans[1].style.opacity = '';
-                menuSpans[2].style.transform = '';
+            if (newSpans.length >= 3) {
+                newSpans[0].style.transform = '';
+                newSpans[1].style.opacity = '';
+                newSpans[2].style.transform = '';
             }
         } else {
             // Open menu
@@ -232,10 +246,10 @@ if (mobileMenuButton && mobileMenu) {
             document.body.style.overflow = 'hidden';
             
             // Animate hamburger to X
-            if (menuSpans) {
-                menuSpans[0].style.transform = 'rotate(45deg) translateY(8px)';
-                menuSpans[1].style.opacity = '0';
-                menuSpans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+            if (newSpans.length >= 3) {
+                newSpans[0].style.transform = 'rotate(45deg) translateY(8px)';
+                newSpans[1].style.opacity = '0';
+                newSpans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
             }
         }
     });
@@ -249,11 +263,19 @@ if (mobileMenuButton && mobileMenu) {
             mobileMenu.classList.add('translate-x-full');
             document.body.style.overflow = '';
             
-            if (menuSpans) {
-                menuSpans[0].style.transform = '';
-                menuSpans[1].style.opacity = '';
-                menuSpans[2].style.transform = '';
+            if (newSpans.length >= 3) {
+                newSpans[0].style.transform = '';
+                newSpans[1].style.opacity = '';
+                newSpans[2].style.transform = '';
             }
         });
     });
+}
+
+// Run when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    // DOM already loaded, run immediately
+    setTimeout(initMobileMenu, 0);
 }
