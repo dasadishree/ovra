@@ -15,9 +15,16 @@
 }
 body{
     background-image: linear-gradient(#fafafa, #f7d7e3);
-    color: #2d2d2d;
+    color: #4a4a4a;
     font-family: "BauhausRegular", sans-serif;
     min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li, div {
+    color: inherit;
+}
+.text-black, [style*="color: black"], [style*="color: #000"] {
+    color: #4a4a4a !important;
 }
 
 /* responsive button styles */
@@ -210,12 +217,11 @@ body{
     }
 }
 
-/* Hero Section with Video Background */
+/* hero style*/
 .hero-section {
     position: relative;
     width: 100%;
 }
-
 .hero-video {
     position: absolute;
     top: 50%;
@@ -234,8 +240,6 @@ body{
     /* Subtle aesthetic effects */
     filter: brightness(0.85) contrast(1.1) saturate(1.2);
 }
-
-/* Gradient overlay for better text readability and aesthetic appeal */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -252,7 +256,6 @@ body{
     /* Add subtle animation for visual interest */
     animation: overlayPulse 8s ease-in-out infinite;
 }
-
 @keyframes overlayPulse {
     0%, 100% {
         opacity: 0.6;
@@ -261,8 +264,6 @@ body{
         opacity: 0.8;
     }
 }
-
-/* Additional aesthetic layer - subtle vignette effect */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -279,15 +280,11 @@ body{
     z-index: 2;
     pointer-events: none;
 }
-
-/* Ensure content is above video and overlays */
 .hero-content,
 .hero-buttons {
     position: relative;
     z-index: 10;
 }
-
-/* Enhanced text shadow for better readability */
 .hero-content h1 {
     text-shadow: 
         0 2px 10px rgba(0, 0, 0, 0.3),
@@ -295,7 +292,6 @@ body{
         0 0 30px rgba(139, 92, 246, 0.3);
     animation: textGlow 3s ease-in-out infinite alternate;
 }
-
 @keyframes textGlow {
     0% {
         text-shadow: 
@@ -310,8 +306,6 @@ body{
             0 0 40px rgba(139, 92, 246, 0.5);
     }
 }
-
-/* Responsive adjustments for video */
 @media (max-width: 768px) {
     .hero-video {
         filter: brightness(0.8) contrast(1.15) saturate(1.15);
@@ -324,5 +318,63 @@ body{
             rgba(139, 92, 246, 0.4) 50%,
             rgba(236, 72, 153, 0.5) 100%
         );
+    }
+}
+
+/* team section*/
+.team-grid {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .team-grid > :nth-child(1) {
+        grid-column: 1;
+    }
+    .team-grid > :nth-child(2) {
+        grid-column: 2;
+    }
+    .team-grid > :nth-child(3) {
+        grid-column: 1;
+    }
+    .team-grid > :nth-child(4) {
+        grid-column: 2;
+    }
+    .team-grid > :nth-child(5) {
+        grid-column: 1 / -1;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .team-grid > :nth-child(4) {
+        grid-column: 1;
+    }
+    .team-grid > :nth-child(5) {
+        grid-column: 2;
+    }
+}
+@media (min-width: 1024px) {
+    .team-grid {
+        display: grid !important;
+        grid-template-columns: 1fr repeat(4, auto) 1fr !important;
+        justify-items: center;
+        max-width: 100%;
+        gap: 3rem 4rem !important;
+    }
+    .team-grid > :nth-child(1) {
+        grid-column: 2;
+    }
+    .team-grid > :nth-child(2) {
+        grid-column: 3;
+    }
+    .team-grid > :nth-child(3) {
+        grid-column: 4;
+    }
+    .team-grid > :nth-child(4) {
+        grid-column: 2;
+        transform: translateX(calc(50% + 2rem));
+    }
+    .team-grid > :nth-child(5) {
+        grid-column: 3;
+        transform: translateX(calc(50% + 2rem));
     }
 }

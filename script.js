@@ -1,4 +1,4 @@
-// Check if we're on mobile (md breakpoint is 768px)
+// mobile or not
 function isMobile() {
     return window.innerWidth < 768;
 }
@@ -68,7 +68,7 @@ let lastWheelTime = 0;
 let wheelTimeout = null;
 let isSectionActive = false;
 function checkSectionActive() {
-    if (isMobile()) return false; // Disable scroll effects on mobile
+    if (isMobile()) return false; 
     const rect = impactSection.getBoundingClientRect();
     isSectionActive = rect.top <= 0 && rect.bottom >= window.innerHeight;
     return isSectionActive;
@@ -186,7 +186,7 @@ function preventScroll(e) {
     }
 }
 
-// Only enable scroll effects on desktop if impact section exists
+// only scroll if impact section exists
 if (impactSection && !isMobile()) {
     impactSection.addEventListener('wheel', handleWheel, { passive: false });
     document.addEventListener('wheel', preventScroll, { passive: false });
@@ -194,27 +194,23 @@ if (impactSection && !isMobile()) {
     setInterval(lockScrollPosition, 100);
     updateSlides();
 }
-
-// Update on window resize
 window.addEventListener('resize', () => {
     if (impactSection && !isMobile()) {
         updateSlides();
     }
 });
 
-// Mobile Menu Toggle - Initialize on DOM ready
+// mobile menu toggle & settings
 function initMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     
     if (!mobileMenuButton || !mobileMenu) {
         console.log('Mobile menu elements not found');
-        return; // Exit if elements don't exist
+        return; 
     }
     
     const menuSpans = mobileMenuButton.querySelectorAll('span');
-    
-    // Remove any existing event listeners by removing and re-adding
     const newButton = mobileMenuButton.cloneNode(true);
     const newSpans = newButton.querySelectorAll('span');
     mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
@@ -226,26 +222,22 @@ function initMobileMenu() {
         const isOpen = !mobileMenu.classList.contains('hidden');
         
         if (isOpen) {
-            // Close menu
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('translate-x-0');
             mobileMenu.classList.add('translate-x-full');
             document.body.style.overflow = '';
             
-            // Reset hamburger icon
             if (newSpans.length >= 3) {
                 newSpans[0].style.transform = '';
                 newSpans[1].style.opacity = '';
                 newSpans[2].style.transform = '';
             }
         } else {
-            // Open menu
             mobileMenu.classList.remove('hidden');
             mobileMenu.classList.remove('translate-x-full');
             mobileMenu.classList.add('translate-x-0');
             document.body.style.overflow = 'hidden';
             
-            // Animate hamburger to X
             if (newSpans.length >= 3) {
                 newSpans[0].style.transform = 'rotate(45deg) translateY(8px)';
                 newSpans[1].style.opacity = '0';
@@ -254,7 +246,6 @@ function initMobileMenu() {
         }
     });
     
-    // Close menu when clicking on a link
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -272,10 +263,8 @@ function initMobileMenu() {
     });
 }
 
-// Run when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initMobileMenu);
 } else {
-    // DOM already loaded, run immediately
     setTimeout(initMobileMenu, 0);
 }
