@@ -6,18 +6,20 @@
     </head>
     <body>
         <!-- navbar -->
-        <nav class="flex items-center justify-between px-10 py-6">
-            <div class="flex items-center gap-3">
-                <a href="index.html"><img src="logo.png" alt="OVRA Logo" class="w-[40px] h-auto"></a>
-                <a href="index.html"><h3 class="font-bold text-2xl tracking-tighter">OVRA</h3></a>
+        <nav class="relative flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 py-2 md:py-3 lg:py-3 xl:py-4 2xl:py-4">
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="index.html"><img src="logo.png" alt="OVRA Logo" class="w-[32px] md:w-[40px] h-auto"></a>
+                <a href="index.html"><h3 class="font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl tracking-tighter">OVRA</h3></a>
             </div>
-            <ul class="hidden md:flex items-center gap-8">
-                <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
-                <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="news-events.html">NEWS & EVENTS</a></li>
-                <li class="text-[18px] font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="get-involved.html">GET INVOLVED</a></li>
+            
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="news-events.html">NEWS & EVENTS</a></li>
+                <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="get-involved.html">GET INVOLVED</a></li>
             </ul>
 
-            <div class="flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-2 sm:gap-4">
                 <a href="https://www.instagram.com/ovra.health/" target="_blank" class="icon-btn" title="Instagram">
                     <img src="ig.png" alt="Instagram">
                 </a>
@@ -31,6 +33,30 @@
                 </button>
                 <a href="https://gofund.me/160490e01" target="_blank"><button class="nav-btn">Donate</button></a>
                 <a href="https://www.instagram.com/ovra.health/" target="_blank"><button class="nav-btn">Join</button></a>
+            </div>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button id="mobile-menu-button" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+                <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+                <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+                <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 flex flex-col pt-20 px-6 transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto">
+                <ul class="flex flex-col gap-6 mb-8">
+                    <li class="text-xl font-extrabold tracking-widest"><a href="who-we-are.html" class="block py-2">WHO WE ARE</a></li>
+                    <li class="text-xl font-extrabold tracking-widest"><a href="news-events.html" class="block py-2">NEWS & EVENTS</a></li>
+                    <li class="text-xl font-extrabold tracking-widest"><a href="get-involved.html" class="block py-2">GET INVOLVED</a></li>
+                </ul>
+                <div class="flex flex-col gap-4">
+                    <a href="https://www.instagram.com/ovra.health/" target="_blank" class="flex items-center gap-3 py-3 border-b border-gray-200">
+                        <img src="ig.png" alt="Instagram" class="w-6 h-6">
+                        <span class="font-bold">Instagram</span>
+                    </a>
+                    <a href="https://gofund.me/160490e01" target="_blank" class="nav-btn text-center">Donate</a>
+                    <a href="https://www.instagram.com/ovra.health/" target="_blank" class="nav-btn text-center">Join</a>
+                </div>
             </div>
         </nav>
 

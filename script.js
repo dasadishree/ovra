@@ -8,6 +8,11 @@ let scrollAccumulator = 0;
 const scrollThreshold = 80;
 let lockedScrollPosition = 0;
 let isScrollLocked = false;
+
+// Check if we're on mobile (md breakpoint is 768px)
+function isMobile() {
+    return window.innerWidth < 768;
+}
 function updateSlides() {
     slides.forEach((slide, index) => {
         if (index === currentSlide) {
@@ -63,6 +68,7 @@ let lastWheelTime = 0;
 let wheelTimeout = null;
 let isSectionActive = false;
 function checkSectionActive() {
+    if (isMobile()) return false; // Disable scroll effects on mobile
     const rect = impactSection.getBoundingClientRect();
     isSectionActive = rect.top <= 0 && rect.bottom >= window.innerHeight;
     return isSectionActive;
@@ -180,8 +186,74 @@ function preventScroll(e) {
     }
 }
 
-impactSection.addEventListener('wheel', handleWheel, { passive: false });
-document.addEventListener('wheel', preventScroll, { passive: false });
-window.addEventListener('scroll', handleScroll, { passive: false });
-setInterval(lockScrollPosition, 100);
-updateSlides();
+// Only enable scroll effects on desktop
+if (!isMobile()) {
+    impactSection.addEventListener('wheel', handleWheel, { passive: false });
+    document.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('scroll', handleScroll, { passive: false });
+    setInterval(lockScrollPosition, 100);
+    updateSlides();
+}
+
+// Update on window resize
+window.addEventListener('resize', () => {
+    if (!isMobile()) {
+        updateSlides();
+    }
+});
+
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuSpans = mobileMenuButton?.querySelectorAll('span');
+
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        
+        if (isOpen) {
+            // Close menu
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+            
+            // Reset hamburger icon
+            if (menuSpans) {
+                menuSpans[0].style.transform = '';
+                menuSpans[1].style.opacity = '';
+                menuSpans[2].style.transform = '';
+            }
+        } else {
+            // Open menu
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            document.body.style.overflow = 'hidden';
+            
+            // Animate hamburger to X
+            if (menuSpans) {
+                menuSpans[0].style.transform = 'rotate(45deg) translateY(8px)';
+                menuSpans[1].style.opacity = '0';
+                menuSpans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+            }
+        }
+    });
+    
+    // Close menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+            
+            if (menuSpans) {
+                menuSpans[0].style.transform = '';
+                menuSpans[1].style.opacity = '';
+                menuSpans[2].style.transform = '';
+            }
+        });
+    });
+}
