@@ -4,7 +4,7 @@ async function send() {
     const userText = input.value;
     if(!userText) return;
 
-    display.innerHTML += `<p><b>You:</b> ${userText}</p>`;
+    display.innerHTML += `<div class="user-bubble"><b>You:</b> ${userText}</div>`;
     input.value = '';
 
     try{
@@ -23,13 +23,13 @@ async function send() {
         
         const data = await response.json();
         if (data.choices && data.choices[0] && data.choices[0].message) {
-            display.innerHTML += `<p><b>AI:</b> ${data.choices[0].message.content}</p>`;
+            display.innerHTML += `<div class="ai-bubble"><b>AI:</b> ${data.choices[0].message.content}</div>`;
         } else {
-            display.innerHTML += `<p style="color:red"><b>Error:</b> Invalid response from AI.</p>`;
+            display.innerHTML += `<div class="error-bubble"><b>Error:</b> Invalid response from AI.</div>`;
         }
 
     } catch(error) {
         console.error(error);
-        display.innerHTML += `<p style="color:red"><b>Error:</b> Could not reach AI.</p>`;
+        display.innerHTML += `<div class="error-bubble"><b>Error:</b> Could not reach AI.</div>`;
     }
 }
