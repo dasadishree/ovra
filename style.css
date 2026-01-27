@@ -137,6 +137,12 @@ body.ai-page::before {
     background: rgba(219, 39, 119, 0.6);
 }
 
+/* Mobile menu hamburger to X transition */
+#mobile-menu-button span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
 h1, h2, h3, h4, h5, h6, p, span, a, li, div {
     color: inherit;
 }
