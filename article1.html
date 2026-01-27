@@ -2,10 +2,128 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Article 1 - OVRA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>OVRA</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                    '3xl': '1920px',
+                    '4xl': '2560px',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="icon" href="logo.png">
 </head>
 <body>
-    <h1>Article 1</h1>
-    <p>This is a placeholder for the first article.</p>
+    <nav class="relative flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20 py-2 md:py-3 lg:py-3 xl:py-4 2xl:py-4">
+        <div class="flex items-center gap-2 md:gap-3">
+            <a href="index.html"><h3 class="text-[#f5576c] font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl tracking-tighter">OVRA</h3></a>
+        </div>
+        
+        <!-- desktop navigation -->
+        <ul class="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10 2xl:gap-12">
+            <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="who-we-are.html">WHO WE ARE</a></li>
+            <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="news-events.html">NEWS & EVENTS</a></li>
+            <li class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-extrabold tracking-widest cursor-pointer hover:opacity-60"><a href="get-involved.html">GET INVOLVED</a></li>
+        </ul>
+
+        <div class="hidden md:flex items-center gap-2 sm:gap-4">
+            <a href="https://www.instagram.com/ovra.health/" target="_blank" class="icon-btn" title="Instagram">
+                <img src="ig.png" alt="Instagram">
+            </a>
+
+            <a href="ai.html">
+            <button class="icon-btn" title="Chatbot">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="currentColor"/>
+                    <circle cx="8" cy="10" r="1" fill="currentColor"/>
+                    <circle cx="12" cy="10" r="1" fill="currentColor"/>
+                    <circle cx="16" cy="10" r="1" fill="currentColor"/>
+                </svg>
+            </button>
+            </a>
+
+            <a href="https://gofund.me/160490e01" target="_blank"><button class="nav-btn">Donate</button></a>
+            <a href="https://www.instagram.com/ovra.health/" target="_blank"><button class="nav-btn">Join</button></a>
+        </div>
+
+        <!-- hamburger -->
+        <button id="mobile-menu-button" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+            <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+            <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+        </button>
+
+        <!-- mobile menu -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 flex flex-col pt-20 px-6 transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto">
+            <ul class="flex flex-col gap-6 mb-8">
+                <li class="text-xl font-extrabold tracking-widest"><a href="who-we-are.html" class="block py-2">WHO WE ARE</a></li>
+                <li class="text-xl font-extrabold tracking-widest"><a href="news-events.html" class="block py-2">NEWS & EVENTS</a></li>
+                <li class="text-xl font-extrabold tracking-widest"><a href="get-involved.html" class="block py-2">GET INVOLVED</a></li>
+            </ul>
+            <div class="flex flex-col gap-4">
+                <a href="https://www.instagram.com/ovra.health/" target="_blank" class="flex items-center gap-3 py-3 border-b border-gray-200">
+                    <img src="ig.png" alt="Instagram" class="w-6 h-6">
+                    <span class="font-bold">Instagram</span>
+                </a>
+                <a href="ai.html" target="_blank" class="flex items-center gap-3 py-3 border-b border-gray-200">
+                    <img src="https://static.thenounproject.com/png/1156284-200.png" class="w-6 h-6">
+                    <span class="font-bold">Chatbot</span>
+                </a>
+                <a href="https://gofund.me/160490e01" target="_blank" class="nav-btn text-center">Donate</a>
+                <a href="https://www.instagram.com/ovra.health/" target="_blank" class="nav-btn text-center">Join</a>
+            </div>
+        </div>
+    </nav> 
+
+    <!-- article content -->
+    <article class="py-8 md:py-12 lg:py-16 xl:py-20" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
+            <header class="mb-6 md:mb-8 lg:mb-10">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 tracking-tighter">
+                    Washington Square Park: Raising Awareness for Menstrual Health
+                </h1>
+                <p class="text-sm md:text-base text-gray-500 font-semibold">January 2024</p>
+            </header>
+
+            <div class="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 mb-8 md:mb-12 lg:mb-16">
+                <!-- image -->
+                <div class="flex-shrink-0 w-full md:w-1/2 lg:w-2/5">
+                    <img src="image.jpg" alt="Article Image" class="w-full h-auto rounded-lg shadow-lg object-cover">
+                </div>
+
+                <!-- article text -->
+                <div class="flex-1 prose prose-lg max-w-none">
+                    <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4 md:mb-6">
+                        In January, Ovra Health went to Washington Square Park to interview and ask guys to try our period cramp simulator in order to raise advocacy for menstrual health!
+                    </p>
+                    <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4 md:mb-6">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <p class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-4 md:mb-6">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                </div>
+            </div>
+
+            <!-- back button -->
+            <div class="mt-8 md:mt-12 lg:mt-16 pt-6 md:pt-8 border-t border-gray-300">
+                <a href="news-events.html" class="inline-flex items-center gap-2 text-pink-600 hover:text-pink-800 transition-colors font-semibold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Back to News & Events
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <script src="script.js"></script>
 </body>
 </html>

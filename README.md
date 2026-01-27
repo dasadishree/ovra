@@ -9,5 +9,5 @@ Tools in Development:
 
 TODO:
 -preorder section
-- clickable news entries
 - footer section
+-join initiative form
