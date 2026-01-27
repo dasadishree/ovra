@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ovra-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /

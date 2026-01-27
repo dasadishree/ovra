@@ -21,6 +21,10 @@ async function send() {
             })
         });
         
+        if (!response.ok) {
+            throw new Error(`Server error: ${response.status} ${response.statusText}`);
+        }
+        
         const data = await response.json();
         if (data.choices && data.choices[0] && data.choices[0].message) {
             display.innerHTML += `<div class="ai-bubble"><b>AI:</b> ${data.choices[0].message.content}</div>`;
@@ -29,7 +33,15 @@ async function send() {
         }
 
     } catch(error) {
-        console.error(error);
-        display.innerHTML += `<div class="error-bubble"><b>Error:</b> Could not reach AI.</div>`;
+        console.error('AI Error:', error);
+        let errorMessage = 'Could not reach AI. ';
+        if (error.message.includes('404')) {
+            errorMessage += 'The server endpoint was not found. Please make sure the server is deployed and running.';
+        } else if (error.message.includes('Failed to fetch')) {
+            errorMessage += 'Unable to connect to the server.';
+        } else {
+            errorMessage += error.message;
+        }
+        display.innerHTML += `<div class="error-bubble"><b>Error:</b> ${errorMessage}</div>`;
     }
 }

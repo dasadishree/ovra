@@ -4,6 +4,7 @@
   "description": "http://ovra.health - A women's health supporting organization making eco-friendly pads supporting menstrual/reproductive health.",
   "main": "ai.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
