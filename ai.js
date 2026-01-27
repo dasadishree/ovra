@@ -15,7 +15,7 @@ async function send() {
             },
             body: JSON.stringify({
                 messages: [
-                    { role: "system", content: "You are a helpful expert in answering questions about women's menstrual health / reproduction specifically."},
+                    { role: "system", content: "You are a helpful expert in answering questions about women's menstrual health / reproduction specifically in a caring/comforting tone."},
                     { role: "user", content: userText }
                 ]
             })

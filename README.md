@@ -8,12 +8,6 @@ Tools in Development:
 
 
 TODO:
-- add in images
-    - logo images
-    - team member images
-    - news & events images
-- ai chatbot
-- responsive for mobile and diff screen sizes
-- bottom navbar
-- finish news & events
-- check all text / descriptions
+-preorder section
+- clickable news entries
+- footer section
