@@ -8,7 +8,7 @@ async function send() {
     input.value = '';
 
     try{
-        const response = await fetch("/chat", {
+        const response = await fetch("/.netlify/functions/chat", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
