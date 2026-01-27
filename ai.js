@@ -22,26 +22,39 @@ async function send() {
         });
         
         if (!response.ok) {
-            throw new Error(`Server error: ${response.status} ${response.statusText}`);
+            const errorData = await response.json().catch(() => ({}));
+            const errorMsg = errorData.error || `Server error: ${response.status} ${response.statusText}`;
+            throw new Error(errorMsg);
         }
         
         const data = await response.json();
+        
+        // Check if the response contains an error
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        
         if (data.choices && data.choices[0] && data.choices[0].message) {
             display.innerHTML += `<div class="ai-bubble"><b>AI:</b> ${data.choices[0].message.content}</div>`;
         } else {
-            display.innerHTML += `<div class="error-bubble"><b>Error:</b> Invalid response from AI.</div>`;
+            display.innerHTML += `<div class="error-bubble"><b>Error:</b> Invalid response from AI. Response: ${JSON.stringify(data).substring(0, 100)}</div>`;
         }
 
     } catch(error) {
         console.error('AI Error:', error);
-        let errorMessage = 'Could not reach AI. ';
-        if (error.message.includes('404')) {
-            errorMessage += 'The server endpoint was not found. Please make sure the server is deployed and running.';
-        } else if (error.message.includes('Failed to fetch')) {
-            errorMessage += 'Unable to connect to the server.';
-        } else {
-            errorMessage += error.message;
+        let errorMessage = error.message || 'Could not reach AI.';
+        
+        // Provide helpful messages for common errors
+        if (errorMessage.includes('API_KEY')) {
+            errorMessage = 'Server configuration error: API key is missing. Please contact the site administrator.';
+        } else if (errorMessage.includes('404')) {
+            errorMessage = 'The server endpoint was not found. Please make sure the server is deployed and running.';
+        } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
+            errorMessage = 'Unable to connect to the server. Please check your internet connection.';
+        } else if (errorMessage.includes('timeout')) {
+            errorMessage = 'The request took too long. Please try again.';
         }
+        
         display.innerHTML += `<div class="error-bubble"><b>Error:</b> ${errorMessage}</div>`;
     }
 }

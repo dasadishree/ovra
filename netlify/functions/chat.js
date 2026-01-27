@@ -27,7 +27,37 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { messages } = JSON.parse(event.body);
+        // Check if API_KEY is set
+        if (!process.env.API_KEY) {
+            console.error('API_KEY environment variable is not set');
+            return {
+                statusCode: 500,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    error: 'API_KEY environment variable is not configured. Please set it in Netlify site settings.',
+                    code: 'MISSING_API_KEY'
+                })
+            };
+        }
+
+        let requestBody;
+        try {
+            requestBody = JSON.parse(event.body);
+        } catch (parseError) {
+            return {
+                statusCode: 400,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ error: 'Invalid JSON in request body' })
+            };
+        }
+
+        const { messages } = requestBody;
 
         if (!messages || !Array.isArray(messages)) {
             return {
@@ -49,7 +79,8 @@ exports.handler = async (event, context) => {
             {
                 headers: {
                     'Authorization': `Bearer ${process.env.API_KEY}`
-                }
+                },
+                timeout: 30000 // 30 second timeout
             }
         );
 
@@ -62,16 +93,37 @@ exports.handler = async (event, context) => {
             body: JSON.stringify(response.data)
         };
     } catch (error) {
-        console.error('Chat error:', error);
+        console.error('Chat error:', {
+            message: error.message,
+            response: error.response?.data,
+            status: error.response?.status,
+            stack: error.stack
+        });
+
+        let errorMessage = error.message || 'Internal server error';
+        let statusCode = 500;
+
+        if (error.response) {
+            // API returned an error response
+            statusCode = error.response.status || 500;
+            errorMessage = error.response.data?.error?.message || error.response.data?.error || errorMessage;
+        } else if (error.request) {
+            // Request was made but no response received
+            errorMessage = 'No response from AI service. Please check your API key and network connection.';
+        } else if (error.code === 'ECONNABORTED') {
+            errorMessage = 'Request timeout. The AI service took too long to respond.';
+        }
+
         return {
-            statusCode: 500,
+            statusCode: statusCode,
             headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                error: error.message || 'Internal server error',
-                details: error.response?.data || null
+                error: errorMessage,
+                code: error.code || 'UNKNOWN_ERROR',
+                details: process.env.NODE_ENV === 'development' ? error.stack : undefined
             })
         };
     }
