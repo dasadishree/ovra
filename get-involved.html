@@ -84,9 +84,17 @@
 
         <!--hero -->
         <section class="relative py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 text-center overflow-hidden" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
-            <div class="absolute inset-0 opacity-[0.03] z-0" style="background-image: 
-                linear-gradient(to right, #000 1px, transparent 1px),
-                linear-gradient(to bottom, #000 1px, transparent 1px);
+            <div class="absolute inset-0 opacity-[0.08] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%);
+                background-size: 60px 60px;
+                background-position: 0 0, 0 30px, 30px -30px, -30px 0px;"></div>
+            
+            <div class="absolute inset-0 opacity-[0.05] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
                 background-size: 40px 40px;"></div>
             <div class="absolute top-0 right-0 w-96 h-96 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full bg-gradient-to-br from-pink-400 to-purple-400 opacity-15 blur-3xl pointer-events-none z-0"></div>
             <div class="absolute bottom-0 left-0 w-80 h-80 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-gradient-to-tr from-purple-400 to-pink-400 opacity-15 blur-3xl pointer-events-none z-0"></div>
@@ -94,7 +102,7 @@
             
             <div class="max-w-5xl mx-auto relative z-10">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold mb-6 md:mb-8 tracking-tighter leading-[0.9]">
-                    Get Involved
+                    Support & Preorder
                 </h1>
                 <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                     Join us in our mission of supporting women's reproductive and menstrual health.
@@ -102,91 +110,120 @@
             </div>
         </section>
 
-        <!-- donate  -->
-        <section id="donate-section" class="py-16 md:py-20 lg:py-24 xl:py-32 2xl:py-40 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-20">
-                    <div class="flex-1 text-center md:text-left">
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-6 md:mb-8 tracking-tighter">Make a Donation</h2>
-                        <p class="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0">
-                            Support our mission with a donation helping us manufacture and distribute eco-friendly pads and reproductive resources to women in need worldwide.
-                        </p>
-                        <a href="https://gofund.me/160490e01" target="_blank">
-                            <button class="btn-primary text-lg md:text-xl lg:text-2xl px-8 md:px-10 lg:px-12 py-4 md:py-5 lg:py-6">
-                                Donate Now
-                            </button>
+        <!-- donate & stay updated section -->
+        <section class="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 overflow-hidden" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
+            <div class="absolute inset-0 opacity-[0.08] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%);
+                background-size: 60px 60px;
+                background-position: 0 0, 0 30px, 30px -30px, -30px 0px;"></div>
+            
+            <div class="absolute inset-0 opacity-[0.05] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+                background-size: 40px 40px;"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+                    <!-- make a donation -->
+                    <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tighter">Make a Donation</h2>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8">Support our mission with a donation helping us manufacture and distribute eco-friendly pads and reproductive resources to women in need worldwide.</p>
+                        <a href="https://gofund.me/160490e01" target="_blank" class="inline-block">
+                            <button class="btn-primary text-base md:text-lg lg:text-xl px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 w-full md:w-auto">Donate Now</button>
                         </a>
                     </div>
-                    <div class="flex-1 flex items-center justify-center">
-                        <div class="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center shadow-2xl">
-                            <svg class="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 2xl:w-20 2xl:h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!--updates-->
-        <section id="stay-updated-section" class="py-16 md:py-20 lg:py-24 xl:py-32 2xl:py-40 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16 lg:gap-20">
-                    <div class="flex-1 text-center md:text-left">
-                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-6 md:mb-8 tracking-tighter">Stay Updated</h2>
-                        <p class="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-gray-600 leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0">
-                            Follow us on Instagram to stay connected with our latest initiatives, impact stories, and opportunities to get involved in our mission.
-                        </p>
-                        <a href="https://www.instagram.com/ovra.health/" target="_blank">
-                            <button class="btn-secondary text-lg md:text-xl lg:text-2xl px-8 md:px-10 lg:px-12 py-4 md:py-5 lg:py-6 flex items-center gap-3 mx-auto md:mx-0">
-                                <svg class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    <!-- stay updated -->
+                    <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tighter">Stay Updated</h2>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8">Follow us on Instagram to stay connected with our latest initiatives, impact stories, and opportunities to get involved in our mission.</p>
+                        <a href="https://www.instagram.com/ovra.health/" target="_blank" class="inline-block w-full md:w-auto">
+                            <button class="btn-secondary text-base md:text-lg lg:text-xl px-6 md:px-8 lg:px-10 py-3 md:py-4 lg:py-5 flex items-center justify-center gap-3 w-full md:w-auto">
+                                <svg class="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>                           
                                 </svg>
-                                Follow @ovra.health
+                                <span>Follow @ovra.health</span>
                             </button>
                         </a>
-                    </div>
-                    <div class="flex-1 flex items-center justify-center">
-                        <div class="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-full bg-gradient-to-br from-pink-400 to-purple-400 flex items-center justify-center shadow-2xl">
-                            <svg class="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-18 xl:h-18 2xl:w-20 2xl:h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
 
-        <!-- preorder section -->
-        <section id="" class="">
-            <div class="">
-                <h2 class="">Preorder Pads</h2>
-                <p class="">Preorder our sustainable pads</p>
+        <!-- forms section -->
+        <section id="forms-section" class="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden" style="background: linear-gradient(to bottom, #ffffff, #e4bacd);">
+            <div class="absolute inset-0 opacity-[0.08] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(219, 39, 119, 0.2) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(219, 39, 119, 0.2) 75%);
+                background-size: 60px 60px;
+                background-position: 0 0, 0 30px, 30px -30px, -30px 0px;"></div>
+            
+            <div class="absolute inset-0 opacity-[0.05] z-0 pointer-events-none" style="background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+                background-size: 40px 40px;"></div>
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+                    <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tighter">Join The Initiative</h2>
+                        <p class="text-base md:text-lg text-gray-600 mb-8">Join our initiative by following us on social media for future updates!</p>
 
-                <form action="/preorder" method="POST">
-                    <div>
-                        <label>Full Name</label>
-                        <input type="text" name="name"></input>
+                        <form action="/join-initiative" method="POST" class="space-y-6">
+                            <div>
+                                <label for="join-name" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Full Name</label>
+                                <input type="text" id="join-name" name="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="Enter your full name">
+                            </div>
+
+                            <div>
+                                <label for="join-phone" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Phone Number</label>
+                                <input type="tel" id="join-phone" name="phone" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="(555) 123-4567">
+                            </div>
+
+                            <div>
+                                <label for="join-email" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Email Address</label>
+                                <input type="email" id="join-email" name="email" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="your.email@example.com">
+                            </div>
+
+                            <button type="submit" class="w-full btn-primary text-base md:text-lg px-6 py-4 mt-4">Join Now</button>
+                        </form>
                     </div>
-                    <br>
-                    <div>
-                        <label>Email Address</label><br>
-                        <input type="email" name="email" required>
+
+                    <!-- preorder -->
+                    <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-10 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-shadow">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tighter">Preorder Pads</h2>
+                        <p class="text-base md:text-lg text-gray-600 mb-8">Preorder our sustainable pads to be the first to receive our eco-friendly pads</p>
+
+                        <form action="/preorder" method="POST" class="space-y-6">
+                            <div>
+                                <label for="preorder-name" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Full Name</label>
+                                <input type="text" id="preorder-name" name="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="Enter your full name">
+                            </div>
+
+                            <div>
+                                <label for="preorder-email" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Email Address</label>
+                                <input type="email" id="preorder-email" name="email" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="your.email@example.com">
+                            </div>
+
+                            <div>
+                                <label for="preorder-quantity" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Quantity</label>
+                                <input type="number" id="preorder-quantity" name="quantity" min="1" value="1" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base">
+                            </div>
+
+                            <div>
+                                <label for="preorder-address" class="block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wider">Shipping Address</label>
+                                <input type="text" id="preorder-address" name="location" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-pink-500 focus:outline-none transition-colors text-base" placeholder="123 Main St, New York, NY 12345 USA">
+                            </div>
+
+                            <button type="submit" class="w-full btn-secondary text-base md:text-lg px-6 py-4 mt-4">Preorder</button>
+                        </form>
                     </div>
-                    <br>
-                    <div>
-                        <label>Quantity</label>
-                        <input type="number" name="quantity" min="1" value="1">
-                    </div>
-                    <br>
-                    <div>
-                        <label>Preorder Shipping Address Info</label>
-                        <input type="text" name="location" placeholder="123 Main St, New York, NY 12345 USA">
-                    </div>
-                    <br>
-                    <button type="submit">Predorder</button>
-                </form>
+                </div>
             </div>
         </section>
 
@@ -207,36 +244,38 @@
                         <p class="text-gray-600 text-sm leding-relaxed max-w-xs">Advancing menstrual equity through sustainable and accessible pads, research, and advocacy</p>
                     </div>
 
-                    <div>
-                        <h4 class="font-bold text-gray-900 mb-4 uppercase text-xs tracking-wider">Contact</h4>
-                        <ul class="space-y-3 text-gray-600 text-sm">
-                            <li class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>                            
-                                <a class="hover:text-pink-500 transition-colors" href="mailto:contact@ovra.health">contact@ovra.health</a>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <span class="hover:text-pink-500 transition-colors">Long Island, New York</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                                <a class="hover:text-pink-500 transition-colors" href="https://www.instagram.com/ovra.health/">Instagram</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-4 uppercase text-xs tracking-wider">Contact</h4>
+                            <ul class="space-y-3 text-gray-600 text-sm">
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>                            
+                                    <a class="hover:text-pink-500 transition-colors" href="mailto:contact@ovra.health">contact@ovra.health</a>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    <span class="hover:text-pink-500 transition-colors">Long Island, New York</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                    <a class="hover:text-pink-500 transition-colors" href="https://www.instagram.com/ovra.health/">Instagram</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h4 class="font-bold text-gray-900 mb-4 uppercase text-xs tracking-wider">Explore</h4>
-                        <ul  class="space-y-3 text-gray-600 text-sm">
-                            <li class="ml-5 list-disc"><a href="who-we-are.html" class="hover:text-pink-500 transition-colors">Who We Are</a></li>
-                            <li class="ml-5 list-disc"><a href="news-events.html" class="hover:text-pink-500 transition-colors">News & Events</a></li>
-                            <li class="ml-5 list-disc"><a href="get-involved.html" class="hover:text-pink-500 transition-colors">Get Involved</a></li>
-                            <li class="ml-5 list-disc"><a href="ai.html" class="hover:text-pink-500 transition-colors">AI Expert</a></li>
-                        </ul>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-4 uppercase text-xs tracking-wider">Explore</h4>
+                            <ul  class="space-y-3 text-gray-600 text-sm">
+                                <li class="ml-5 list-disc"><a href="who-we-are.html" class="hover:text-pink-500 transition-colors">Who We Are</a></li>
+                                <li class="ml-5 list-disc"><a href="news-events.html" class="hover:text-pink-500 transition-colors">News & Events</a></li>
+                                <li class="ml-5 list-disc"><a href="get-involved.html" class="hover:text-pink-500 transition-colors">Get Involved</a></li>
+                                <li class="ml-5 list-disc"><a href="ai.html" class="hover:text-pink-500 transition-colors">AI Expert</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
