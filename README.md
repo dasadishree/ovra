@@ -9,5 +9,4 @@ Tools in Development:
 
 TODO:
 -preorder section
-- footer section
 -join initiative form

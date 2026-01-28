@@ -83,7 +83,6 @@ body.ai-page::before {
         max-width: 80%;
     }
 }
-
 @media (min-width: 768px) {
     .user-bubble {
         padding: 16px 20px;
@@ -91,7 +90,6 @@ body.ai-page::before {
         max-width: 75%;
     }
 }
-
 .error-bubble {
     background: rgba(239, 68, 68, 0.2);
     color: #dc2626;
@@ -103,14 +101,12 @@ body.ai-page::before {
     line-height: 1.5;
     font-size: 14px;
 }
-
 @media (min-width: 640px) {
     .error-bubble {
         padding: 14px 18px;
         font-size: 15px;
     }
 }
-
 @media (min-width: 768px) {
     .error-bubble {
         padding: 16px 20px;
@@ -122,27 +118,21 @@ body.ai-page::before {
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(219, 39, 119, 0.4);
     border-radius: 10px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(219, 39, 119, 0.6);
 }
-
-/* Mobile menu hamburger to X transition */
 #mobile-menu-button span {
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform-origin: center;
 }
-
 h1, h2, h3, h4, h5, h6, p, span, a, li, div {
     color: inherit;
 }
