@@ -29,7 +29,7 @@ async function send() {
         
         const data = await response.json();
         
-        // Check if the response contains an error
+        // check if error
         if (data.error) {
             throw new Error(data.error);
         }
@@ -44,7 +44,7 @@ async function send() {
         console.error('AI Error:', error);
         let errorMessage = error.message || 'Could not reach AI.';
         
-        // Provide helpful messages for common errors
+        // error messages
         if (errorMessage.includes('API_KEY')) {
             errorMessage = 'Server configuration error: API key is missing. Please contact the site administrator.';
         } else if (errorMessage.includes('404')) {

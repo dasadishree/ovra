@@ -1,3 +1,77 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+            import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+          
+            const firebaseConfig = {
+              apiKey: import.meta.env.FIREBASE_KEY,
+              authDomain: "ovra-91fb6.firebaseapp.com",
+              projectId: "ovra-91fb6",
+              storageBucket: "ovra-91fb6.firebasestorage.app",
+              messagingSenderId: "426222882941",
+              appId: "1:426222882941:web:299b78532a11e22221a114"
+            };
+          
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            // join initiative
+            const joinForm = document.getElementById('join-form');
+            if (joinForm) {
+                joinForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = joinForm.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+                    btn.innerText = "Sending...";
+                    btn.disabled = true;
+
+                    try {
+                        await addDoc(collection(db, "initiative_signups"), {
+                            name: document.getElementById('join-name').value,
+                            phone: document.getElementById('join-phone').value,
+                            email: document.getElementById('join-email').value,
+                            timestamp: serverTimestamp()
+                        });
+                        alert("Success! You've joined the initiative.");
+                        joinForm.reset();
+                    } catch(err) {
+                        console.error("Error:", err);
+                        alert("Something went wrong. Please try again.");
+                    } finally {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    }
+                });
+            }
+
+            // preorder form
+            const preorderForm = document.getElementById('preorder-form');
+            if (preorderForm) {
+                preorderForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const btn = preorderForm.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+                    btn.innerText = "Processing...";
+                    btn.disabled = true;
+
+                    try {
+                        await addDoc(collection(db, "preorders"), {
+                            name: document.getElementById('preorder-name').value,
+                            email: document.getElementById('preorder-email').value,
+                            quantity: parseInt(document.getElementById('preorder-quantity').value),
+                            address: document.getElementById('preorder-address').value,
+                            timestamp: serverTimestamp()
+                        });
+                        alert("Preorder received! We'll be in touch.");
+                        preorderForm.reset();
+                    } catch(err) {
+                        console.error("Error:", err);
+                        alert("Preorder failed to send. Please try again.");
+                    } finally {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    }
+                });
+            }
+        
 // mobile or not
 function isMobile() {
     return window.innerWidth < 768;

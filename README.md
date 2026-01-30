@@ -8,5 +8,5 @@ Tools in Development:
 
 
 TODO:
--preorder section
--join initiative form
+- make the 2 forms link to firebase
+- add forms / other links on get invovled page to the footer
