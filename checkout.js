@@ -15,9 +15,9 @@ function displayOrderSummary() {
     }
     
     orderItems.innerHTML = cart.map(item => `
-        <div class="flex justify-between">
-            <span>${item.name} x${item.quantity}</span>
-            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        <div class="flex justify-between text-sm sm:text-base">
+            <span class="flex-1 pr-2">${item.name} x${item.quantity}</span>
+            <span class="font-semibold flex-shrink-0">$${(item.price * item.quantity).toFixed(2)}</span>
         </div>
     `).join('');
     
@@ -152,13 +152,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const paypalContainer = document.getElementById('paypal-button-container');
     paypalContainer.innerHTML = `
-        <button onclick="handlePayPalCheckout(event)" class="w-full btn-primary text-center py-4 flex items-center justify-center gap-3">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <button onclick="handlePayPalCheckout(event)" class="w-full btn-primary text-center py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.174 1.351 1.05 3.3.93 4.791v.006c-.11 1.316-.24 2.885-.24 2.885s.13 1.1.13 2.85c0 .78-.11 1.54-.24 2.16-.11.57-.24 1.07-.24 1.07s.05.38.07 1.04c.02.78.02 1.68.02 2.54 0 .84-.01 1.62-.02 2.4 0 .66-.05 1.04-.07 1.04s-.13-.5-.24-1.07c-.13-.62-.24-1.38-.24-2.16 0-1.75-.13-2.85-.13-2.85s.13-1.57.24-2.89v-.01c.12-1.49.24-3.44-.93-4.79-1.11-1.27-3.12-1.81-5.69-1.81H8.736c-.78 0-1.19.46-1.25 1.16l-.05.38c-.05.7-.38 1.16-1.16 1.16H5.78c-.78 0-1.19.46-1.25 1.16l-.05.38c-.05.7-.38 1.16-1.16 1.16H3.82c-.78 0-1.19.46-1.25 1.16l-.05.38c-.05.7-.38 1.16-1.16 1.16H1.86c-.78 0-1.19.46-1.25 1.16l-.05.38c-.05.7-.38 1.16-1.16 1.16H.9c-.78 0-1.19.46-1.25 1.16l-.05.38c-.05.7-.38 1.16-1.16 1.16v.01z"/>
             </svg>
             Pay with PayPal
         </button>
-        <p class="text-sm text-gray-600 text-center mt-3">You'll be redirected to PayPal to log in and complete payment</p>
+        <p class="text-xs sm:text-sm text-gray-600 text-center mt-2 sm:mt-3">You'll be redirected to PayPal to log in and complete payment</p>
     `;
     
     window.handlePayPalCheckout = handlePayPalCheckout;
