@@ -91,9 +91,10 @@ exports.handler = async (event, context) => {
             },
             {
                 headers: {
-                    'Authorization': `Bearer ${process.env.API_KEY}`
+                    'Authorization': `Bearer ${process.env.API_KEY}`,
+                    'Content-Type': 'application/json'
                 },
-                timeout: 30000 // 30 second timeout
+                timeout: 20000 // 20 second timeout (Netlify functions max is 26s on free tier)
             }
         );
 
@@ -108,6 +109,7 @@ exports.handler = async (event, context) => {
     } catch (error) {
         console.error('Chat error:', {
             message: error.message,
+            code: error.code,
             response: error.response?.data,
             status: error.response?.status,
             stack: error.stack
@@ -116,15 +118,20 @@ exports.handler = async (event, context) => {
         let errorMessage = error.message || 'Internal server error';
         let statusCode = 500;
 
-        if (error.response) {
+        if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {
+            statusCode = 504; // Gateway Timeout
+            errorMessage = 'The AI service took too long to respond. Please try again with a shorter question.';
+        } else if (error.response) {
             // API returned an error response
             statusCode = error.response.status || 500;
             errorMessage = error.response.data?.error?.message || error.response.data?.error || errorMessage;
         } else if (error.request) {
             // Request was made but no response received
-            errorMessage = 'No response from AI service. Please check your API key and network connection.';
-        } else if (error.code === 'ECONNABORTED') {
-            errorMessage = 'Request timeout. The AI service took too long to respond.';
+            statusCode = 502; // Bad Gateway
+            errorMessage = 'The AI service is not responding. Please try again in a moment.';
+        } else if (error.message.includes('ENOTFOUND') || error.message.includes('ECONNREFUSED')) {
+            statusCode = 502;
+            errorMessage = 'Cannot connect to AI service. Please check your API configuration.';
         }
 
         return {

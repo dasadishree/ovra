@@ -41,8 +41,11 @@ async function send() {
             let errorMsg = errorData.error || `Server error: ${response.status} ${response.statusText}`;
             
             if (response.status === 405) {
-                // Method not allowed - check what method was received
-                errorMsg = `Method not allowed. Received: ${errorData.received || 'unknown'}. Expected: POST. ${errorData.error || ''}`;
+                // Method not allowed - this means function isn't working
+                throw new Error('FUNCTION_405_ERROR');
+            } else if (response.status === 502 || response.status === 504) {
+                // Gateway/timeout errors
+                throw new Error('GATEWAY_ERROR');
             }
             
             throw new Error(errorMsg);
@@ -73,16 +76,20 @@ async function send() {
         let errorMessage = error.message || 'Could not reach AI.';
         
         // Specific error handling
-        if (errorMessage === 'FUNCTION_NOT_DEPLOYED' || errorMessage.includes('405') || errorMessage.includes('Method not allowed')) {
-            errorMessage = 'AI chat is currently unavailable. The service needs to be configured on Netlify.\n\nFor menstrual health questions, please:\n• Contact your healthcare provider for medical advice\n• Email us at contact@ovra.health\n• Visit our resources section';
-        } else if (errorMessage.includes('API_KEY')) {
-            errorMessage = 'Server configuration error: API key is missing. Please contact the site administrator.';
+        if (errorMessage === 'FUNCTION_NOT_DEPLOYED' || errorMessage === 'FUNCTION_405_ERROR' || errorMessage.includes('405') || errorMessage.includes('Method not allowed')) {
+            errorMessage = 'AI chat function needs configuration. Please check:\n\n1. Function is deployed in Netlify\n2. API_KEY environment variable is set in Netlify\n3. Function is at: netlify/functions/chat.js\n\nFor now, please contact your healthcare provider or email us at contact@ovra.health';
+        } else if (errorMessage === 'GATEWAY_ERROR' || errorMessage.includes('502') || errorMessage.includes('Bad Gateway')) {
+            errorMessage = 'The AI service is temporarily unavailable. This could mean:\n\n• The API is slow or down\n• Your API_KEY might be invalid\n• The function timed out\n\nPlease try again in a moment or contact support.';
+        } else if (errorMessage.includes('504') || errorMessage.includes('Gateway Timeout')) {
+            errorMessage = 'The request timed out. Please try again with a shorter question.';
+        } else if (errorMessage.includes('API_KEY') || errorMessage.includes('MISSING_API_KEY')) {
+            errorMessage = 'API key is missing. Please set API_KEY in Netlify environment variables.';
         } else if (errorMessage.includes('404')) {
-            errorMessage = 'The server endpoint was not found. Please make sure the server is deployed and running.';
+            errorMessage = 'Function not found. Make sure the function is deployed at netlify/functions/chat.js';
         } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
             errorMessage = 'Unable to connect to the server. Please check your internet connection.';
         } else if (errorMessage.includes('timeout')) {
-            errorMessage = 'The request took too long. Please try again.';
+            errorMessage = 'The request took too long. Please try again with a shorter question.';
         }
         
         display.innerHTML += `<div class="error-bubble"><b>Error:</b> ${errorMessage}</div>`;
