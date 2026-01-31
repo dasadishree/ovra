@@ -28,11 +28,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                         timestamp: serverTimestamp()
                     };
                     const docRef = await addDoc(collection(db, "initiative_signups"), data);
-                    
-                    alert('Success! You\'ve joined the initiative.');
                     this.reset();
                 } catch(err) {
-                    alert('Error: Failed to submit');
                 } finally {
                     btn.textContent = originalText;
                     btn.disabled = false;
@@ -61,11 +58,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                     };
                     
                     const docRef = await addDoc(collection(db, "preorders"), data);
-                    
-                    alert('Preorder received! We\'ll be in touch.');
                     this.reset();
                 } catch(err) {
-                    alert('Error: Failed to submit');
                 } finally {
                     btn.textContent = originalText;
                     btn.disabled = false;
@@ -74,7 +68,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
     } catch(error) {
-        alert('Error: Firebase failed to load.');
     }
 });
         
