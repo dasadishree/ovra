@@ -1,76 +1,96 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-            import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-          
-            const firebaseConfig = {
-              apiKey: import.meta.env.FIREBASE_KEY,
-              authDomain: "ovra-91fb6.firebaseapp.com",
-              projectId: "ovra-91fb6",
-              storageBucket: "ovra-91fb6.firebasestorage.app",
-              messagingSenderId: "426222882941",
-              appId: "1:426222882941:web:299b78532a11e22221a114"
-            };
-          
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-
-            // join initiative
-            const joinForm = document.getElementById('join-form');
-            if (joinForm) {
-                joinForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const btn = joinForm.querySelector('button[type="submit"]');
-                    const originalText = btn.innerText;
-                    btn.innerText = "Sending...";
-                    btn.disabled = true;
-
-                    try {
-                        await addDoc(collection(db, "initiative_signups"), {
-                            name: document.getElementById('join-name').value,
-                            phone: document.getElementById('join-phone').value,
-                            email: document.getElementById('join-email').value,
-                            timestamp: serverTimestamp()
-                        });
-                        alert("Success! You've joined the initiative.");
-                        joinForm.reset();
-                    } catch(err) {
-                        console.error("Error:", err);
-                        alert("Something went wrong. Please try again.");
-                    } finally {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                    }
-                });
-            }
-
-            // preorder form
-            const preorderForm = document.getElementById('preorder-form');
-            if (preorderForm) {
-                preorderForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const btn = preorderForm.querySelector('button[type="submit"]');
-                    const originalText = btn.innerText;
-                    btn.innerText = "Processing...";
-                    btn.disabled = true;
-
-                    try {
-                        await addDoc(collection(db, "preorders"), {
-                            name: document.getElementById('preorder-name').value,
-                            email: document.getElementById('preorder-email').value,
-                            quantity: parseInt(document.getElementById('preorder-quantity').value),
-                            address: document.getElementById('preorder-address').value,
-                            timestamp: serverTimestamp()
-                        });
-                        alert("Preorder received! We'll be in touch.");
-                        preorderForm.reset();
-                    } catch(err) {
-                        console.error("Error:", err);
-                        alert("Preorder failed to send. Please try again.");
-                    } finally {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                    }
-                });
-            }
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('Setting up Firebase forms...');
+    
+    try {
+        // import firebase
+        const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js");
+        const { getFirestore, collection, addDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js");
+        const { firebaseConfig } = await import("./firebase-config.js");
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        console.log('✅ Firebase initialized');
+        
+        // join initiative form
+        const joinForm = document.getElementById('join-form');
+        if (joinForm) {
+            joinForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                console.log('Join form submitted!');
+                
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                
+                try {
+                    const data = {
+                        name: document.getElementById('join-name').value.trim(),
+                        phone: document.getElementById('join-phone').value.trim(),
+                        email: document.getElementById('join-email').value.trim(),
+                        timestamp: serverTimestamp()
+                    };
+                    
+                    console.log('Submitting:', data);
+                    const docRef = await addDoc(collection(db, "initiative_signups"), data);
+                    console.log('✅ Saved! ID:', docRef.id);
+                    
+                    alert('Success! You\'ve joined the initiative.');
+                    this.reset();
+                } catch(err) {
+                    console.error('❌ Error:', err);
+                    alert('Error: ' + (err.message || 'Failed to submit. Check console for details.'));
+                } finally {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            });
+            console.log('✅ Join form handler attached');
+        }
+        
+        // preorder form
+        const preorderForm = document.getElementById('preorder-form');
+        if (preorderForm) {
+            preorderForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                console.log('Preorder form submitted!');
+                
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = 'Processing...';
+                btn.disabled = true;
+                
+                try {
+                    const data = {
+                        name: document.getElementById('preorder-name').value.trim(),
+                        email: document.getElementById('preorder-email').value.trim(),
+                        quantity: parseInt(document.getElementById('preorder-quantity').value) || 1,
+                        address: document.getElementById('preorder-address').value.trim(),
+                        timestamp: serverTimestamp()
+                    };
+                    
+                    console.log('Submitting:', data);
+                    const docRef = await addDoc(collection(db, "preorders"), data);
+                    console.log('✅ Saved! ID:', docRef.id);
+                    
+                    alert('Preorder received! We\'ll be in touch.');
+                    this.reset();
+                } catch(err) {
+                    console.error('❌ Error:', err);
+                    alert('Error: ' + (err.message || 'Failed to submit. Check console for details.'));
+                } finally {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            });
+            console.log('✅ Preorder form handler attached');
+        }
+        
+    } catch(error) {
+        console.error('❌ Firebase setup failed:', error);
+        alert('Firebase failed to load. Please refresh the page.');
+    }
+});
         
 // mobile or not
 function isMobile() {
@@ -260,7 +280,6 @@ function preventScroll(e) {
     }
 }
 
-// only scroll if impact section exists
 if (impactSection && !isMobile()) {
     impactSection.addEventListener('wheel', handleWheel, { passive: false });
     document.addEventListener('wheel', preventScroll, { passive: false });
@@ -274,113 +293,52 @@ window.addEventListener('resize', () => {
     }
 });
 
-// mobile menu toggle & settings
-function initMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+// mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobile-menu');
     
-    if (!mobileMenuButton || !mobileMenu) {
-        console.log('Mobile menu elements not found');
-        return; 
+    if (!btn || !menu) return;
+    
+    function closeMenu() {
+        menu.classList.add('hidden');
+        menu.classList.remove('translate-x-0');
+        menu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
     }
     
-    const menuSpans = mobileMenuButton.querySelectorAll('span');
-    const newButton = mobileMenuButton.cloneNode(true);
-    const newSpans = newButton.querySelectorAll('span');
-    mobileMenuButton.parentNode.replaceChild(newButton, mobileMenuButton);
+    function openMenu() {
+        menu.classList.remove('hidden');
+        menu.classList.remove('translate-x-full');
+        menu.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+    }
     
-    newButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isOpen = mobileMenu.classList.contains('translate-x-0') || !mobileMenu.classList.contains('hidden');
-        
+    btn.addEventListener('click', function() {
+        const isOpen = !menu.classList.contains('hidden');
         if (isOpen) {
-            // Close menu
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('translate-x-0');
-            mobileMenu.classList.add('translate-x-full');
-            document.body.style.overflow = '';
-            
-            // Reset to hamburger icon
-            if (newSpans.length >= 3) {
-                newSpans[0].style.transform = '';
-                newSpans[0].style.transition = 'transform 0.3s ease';
-                newSpans[1].style.opacity = '';
-                newSpans[1].style.transition = 'opacity 0.3s ease';
-                newSpans[2].style.transform = '';
-                newSpans[2].style.transition = 'transform 0.3s ease';
-            }
+            closeMenu();
         } else {
-            // Open menu
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
-            document.body.style.overflow = 'hidden';
-            
-            // Transform to X icon
-            if (newSpans.length >= 3) {
-                newSpans[0].style.transform = 'rotate(45deg) translateY(9px)';
-                newSpans[0].style.transition = 'transform 0.3s ease';
-                newSpans[1].style.opacity = '0';
-                newSpans[1].style.transition = 'opacity 0.3s ease';
-                newSpans[2].style.transform = 'rotate(-45deg) translateY(-9px)';
-                newSpans[2].style.transition = 'transform 0.3s ease';
-            }
+            openMenu();
         }
     });
     
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('translate-x-0');
-            mobileMenu.classList.add('translate-x-full');
-            document.body.style.overflow = '';
-            
-            // Reset to hamburger icon
-            if (newSpans.length >= 3) {
-                newSpans[0].style.transform = '';
-                newSpans[0].style.transition = 'transform 0.3s ease';
-                newSpans[1].style.opacity = '';
-                newSpans[1].style.transition = 'opacity 0.3s ease';
-                newSpans[2].style.transform = '';
-                newSpans[2].style.transition = 'transform 0.3s ease';
-            }
-        });
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
     
-    // Also add close button inside the menu
-    const closeButton = document.createElement('button');
-    closeButton.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    `;
-    closeButton.className = 'absolute top-4 right-4 p-2 text-gray-800 hover:text-gray-600 transition-colors';
-    closeButton.setAttribute('aria-label', 'Close menu');
-    closeButton.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('translate-x-0');
-        mobileMenu.classList.add('translate-x-full');
-        document.body.style.overflow = '';
-        
-        // Reset to hamburger icon
-        if (newSpans.length >= 3) {
-            newSpans[0].style.transform = '';
-            newSpans[0].style.transition = 'transform 0.3s ease';
-            newSpans[1].style.opacity = '';
-            newSpans[1].style.transition = 'opacity 0.3s ease';
-            newSpans[2].style.transform = '';
-            newSpans[2].style.transition = 'transform 0.3s ease';
-        }
-    });
-    mobileMenu.appendChild(closeButton);
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileMenu);
-} else {
-    setTimeout(initMobileMenu, 0);
-}
+    // close button
+    if (!menu.querySelector('.mobile-menu-close')) {
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'mobile-menu-close absolute top-4 right-4 p-2 text-gray-800 hover:text-gray-600 transition-colors';
+        closeBtn.setAttribute('aria-label', 'Close menu');
+        closeBtn.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        `;
+        closeBtn.addEventListener('click', closeMenu);
+        menu.appendChild(closeBtn);
+    }
+});
