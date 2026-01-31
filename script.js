@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('Setting up Firebase forms...');
     
     try {
-        // import firebase
+        // firebase
         const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js");
         const { getFirestore, collection, addDoc, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js");
         const { firebaseConfig } = await import("./firebase-config.js");
         
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        console.log('✅ Firebase initialized');
         
         // join initiative form
         const joinForm = document.getElementById('join-form');
@@ -30,22 +28,17 @@ document.addEventListener('DOMContentLoaded', async function() {
                         email: document.getElementById('join-email').value.trim(),
                         timestamp: serverTimestamp()
                     };
-                    
-                    console.log('Submitting:', data);
                     const docRef = await addDoc(collection(db, "initiative_signups"), data);
-                    console.log('✅ Saved! ID:', docRef.id);
                     
                     alert('Success! You\'ve joined the initiative.');
                     this.reset();
                 } catch(err) {
-                    console.error('❌ Error:', err);
-                    alert('Error: ' + (err.message || 'Failed to submit. Check console for details.'));
+                    alert('Error: Failed to submit');
                 } finally {
                     btn.textContent = originalText;
                     btn.disabled = false;
                 }
             });
-            console.log('✅ Join form handler attached');
         }
         
         // preorder form
@@ -53,7 +46,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (preorderForm) {
             preorderForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                console.log('Preorder form submitted!');
                 
                 const btn = this.querySelector('button[type="submit"]');
                 const originalText = btn.textContent;
@@ -69,26 +61,21 @@ document.addEventListener('DOMContentLoaded', async function() {
                         timestamp: serverTimestamp()
                     };
                     
-                    console.log('Submitting:', data);
                     const docRef = await addDoc(collection(db, "preorders"), data);
-                    console.log('✅ Saved! ID:', docRef.id);
                     
                     alert('Preorder received! We\'ll be in touch.');
                     this.reset();
                 } catch(err) {
-                    console.error('❌ Error:', err);
-                    alert('Error: ' + (err.message || 'Failed to submit. Check console for details.'));
+                    alert('Error: Failed to submit');
                 } finally {
                     btn.textContent = originalText;
                     btn.disabled = false;
                 }
             });
-            console.log('✅ Preorder form handler attached');
         }
         
     } catch(error) {
-        console.error('❌ Firebase setup failed:', error);
-        alert('Firebase failed to load. Please refresh the page.');
+        alert('Error: Firebase failed to load.');
     }
 });
         
