@@ -1,14 +1,22 @@
 const axios = require('axios');
 
 exports.handler = async (event, context) => {
-    // Handle CORS
+    // Debug logging
+    console.log('Function called:', {
+        method: event.httpMethod,
+        path: event.path,
+        headers: event.headers
+    });
+    
+    // Handle CORS preflight
     if (event.httpMethod === 'OPTIONS') {
         return {
             statusCode: 200,
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Max-Age': '86400'
             },
             body: ''
         };
@@ -20,9 +28,14 @@ exports.handler = async (event, context) => {
             statusCode: 405,
             headers: {
                 'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Allow': 'POST, OPTIONS'
             },
-            body: JSON.stringify({ error: 'Method not allowed' })
+            body: JSON.stringify({ 
+                error: 'Method not allowed',
+                received: event.httpMethod,
+                allowed: 'POST'
+            })
         };
     }
 
