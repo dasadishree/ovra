@@ -1,18 +1,14 @@
-// Shopping Cart Utility
 export const Cart = {
-    // Get cart from localStorage
     getCart() {
         const cart = localStorage.getItem('ovra_cart');
         return cart ? JSON.parse(cart) : [];
     },
     
-    // Save cart to localStorage
     saveCart(cart) {
         localStorage.setItem('ovra_cart', JSON.stringify(cart));
         this.updateCartBadge();
     },
     
-    // Add item to cart
     addItem(product) {
         const cart = this.getCart();
         const existingItem = cart.find(item => item.id === product.id);
@@ -33,14 +29,12 @@ export const Cart = {
         return cart;
     },
     
-    // Remove item from cart
     removeItem(productId) {
         const cart = this.getCart().filter(item => item.id !== productId);
         this.saveCart(cart);
         return cart;
     },
     
-    // Update item quantity
     updateQuantity(productId, quantity) {
         const cart = this.getCart();
         const item = cart.find(item => item.id === productId);
@@ -54,23 +48,19 @@ export const Cart = {
         return cart;
     },
     
-    // Get total items count
     getTotalItems() {
         return this.getCart().reduce((sum, item) => sum + item.quantity, 0);
     },
     
-    // Get total price
     getTotalPrice() {
         return this.getCart().reduce((sum, item) => sum + (item.price * item.quantity), 0);
     },
     
-    // Clear cart
     clearCart() {
         localStorage.removeItem('ovra_cart');
         this.updateCartBadge();
     },
     
-    // Update cart badge in navbar
     updateCartBadge() {
         const badge = document.getElementById('cart-badge');
         const count = this.getTotalItems();
@@ -85,7 +75,6 @@ export const Cart = {
     }
 };
 
-// Initialize cart badge on page load
 if (typeof document !== 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         Cart.updateCartBadge();

@@ -41,7 +41,6 @@ async function send() {
         }
 
     } catch(error) {
-        console.error('AI Error:', error);
         let errorMessage = error.message || 'Could not reach AI.';
         
         // error messages

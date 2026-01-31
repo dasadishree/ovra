@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (joinForm) {
             joinForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                console.log('Join form submitted!');
                 
                 const btn = this.querySelector('button[type="submit"]');
                 const originalText = btn.textContent;

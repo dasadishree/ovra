@@ -64,21 +64,11 @@ async function handlePayPalCheckout(e) {
         paypalConfig = await import('./paypal-config.js');
     } catch(e) {
         const paypalInput = prompt('Enter your PayPal email or PayPal.me username to receive payments:');
-        if (!paypalInput || !paypalInput.trim()) {
-            alert('PayPal account is required for checkout');
-            return;
-        }
         paypalConfig = { paypalEmail: paypalInput.trim() };
     }
     
     const amount = orderData.total.toFixed(2);
     const paypalEmail = paypalConfig.paypalEmail || paypalConfig.defaultPayPalEmail;
-    
-    if (!paypalEmail) {
-        alert('PayPal account not configured. Please contact support.');
-        return;
-    }
-    
     const isEmail = paypalEmail.includes('@');
     
     if (isEmail) {
@@ -109,7 +99,6 @@ async function savePendingOrder(orderData) {
             timestamp: serverTimestamp()
         });
     } catch(error) {
-        console.error('Error saving pending order:', error);
     }
 }
 
@@ -150,8 +139,6 @@ async function completeOrder(orderData, orderId) {
         
         window.location.href = `order-success.html?orderId=${orderId}`;
     } catch(error) {
-        console.error('Error completing order:', error);
-        alert('Order received! Thank you for your purchase.');
         localStorage.removeItem('pending_order');
         Cart.clearCart();
         window.location.href = 'preorder.html';

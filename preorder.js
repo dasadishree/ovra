@@ -53,14 +53,11 @@ function displayProducts() {
 window.addToCart = function(productId, event) {
     const product = products.find(p => p.id === productId);
     if (!product) {
-        console.error('Product not found:', productId);
         return;
     }
     
     try {
-        Cart.addItem(product);
-        console.log('Added to cart:', product);
-        
+        Cart.addItem(product);        
         const btn = event ? event.target : document.querySelector(`button[onclick*="${productId}"]`);
         if (btn) {
             const originalText = btn.textContent;
@@ -73,8 +70,6 @@ window.addToCart = function(productId, event) {
             }, 1000);
         }
     } catch(error) {
-        console.error('Error adding to cart:', error);
-        alert('Error adding item to cart. Please try again.');
     }
 };
 

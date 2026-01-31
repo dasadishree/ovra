@@ -5,7 +5,7 @@ http://ovra.health
 Tools in Development:
 - PSA paypal/cart doesnt work its just for appearances/simulating the experience!
 - Tailwind, HTML, Netlify for hosting
-- AI (CURSOR) used for making it mobile-friendly and resposive to different screen sizes, as well as the semicircle scrolling effect in the "our impact" section
+- AI (CURSOR) usef for preorder, used for making it mobile-friendly and resposive to different screen sizes, as well as the semicircle scrolling effect in the "our impact" section
 
 
 TODO:

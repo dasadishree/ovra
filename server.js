@@ -18,7 +18,6 @@ app.post('/chat', async (req, res) => {
         });
         res.json(response.data);
     } catch(error) {
-        console.error('Chat error:', error);
         res.status(500).json({ error: error.message || 'Internal server error' });
     }
 });

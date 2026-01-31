@@ -1,7 +1,5 @@
-// Import Cart
 import { Cart } from './cart.js';
 
-// Cart page functionality
 function displayCart() {
     const cart = Cart.getCart();
     const cartItems = document.getElementById('cart-items');
@@ -47,7 +45,6 @@ function displayCart() {
     document.getElementById('cart-total').textContent = `$${Cart.getTotalPrice().toFixed(2)}`;
 }
 
-// Global functions for onclick handlers
 window.updateQuantity = function(productId, quantity) {
     Cart.updateQuantity(productId, quantity);
     displayCart();
@@ -60,7 +57,6 @@ window.removeItem = function(productId) {
     Cart.updateCartBadge();
 };
 
-// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     displayCart();
     Cart.updateCartBadge();
