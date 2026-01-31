@@ -5,21 +5,21 @@ const products = [
         id: 'pad-regular',
         name: 'Regular Pads',
         price: 12.99,
-        image: 'logo.png',
+        image: 'regular.png',
         description: 'Comfortable and absorbent regular flow pads'
     },
     {
         id: 'pad-heavy',
         name: 'Heavy Flow Pads',
         price: 14.99,
-        image: 'logo.png',
+        image: 'heavy.png',
         description: 'Extra absorbent pads for heavy flow days'
     },
     {
         id: 'pad-light',
         name: 'Light Pads',
         price: 10.99,
-        image: 'logo.png',
+        image: 'light.png',
         description: 'Lightweight pads for light flow days'
     }
 ];
