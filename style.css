@@ -513,12 +513,19 @@ nav .icon-btn:hover {
     }
 }
 
-/* team section — 2×2 grid, all breakpoints (Sarah & Chloe | Adishree & Sophie) */
-.team-grid {
+/* team section — row of 2, row of 3 (who-we-are) */
+.team-layout {
+    width: 100%;
+}
+.team-grid--top {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-items: center;
-    justify-content: center;
     align-items: start;
-    width: 100%;
+}
+.team-grid--bottom {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: center;
+    align-items: start;
 }
