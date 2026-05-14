@@ -11,4 +11,4 @@ Tools in Development:
 TODO:
 - pad images
 - articles & descriptions
-- fix ai
+- fix ai<img width="1470" height="956" alt="Screenshot 2026-01-31 at 7 12 15 PM" src="https://github.com/user-attachments/assets/5c6ede24-2b26-48f2-9904-f2af63f69ba8" />
