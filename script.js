@@ -321,3 +321,56 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.appendChild(closeBtn);
     }
 });
+
+/* Homepage hero: reveal on user scroll (not on load — IO was firing immediately) */
+(function () {
+    const hero = document.querySelector('.hero-section');
+    if (!hero) return;
+
+    let fallbackId = null;
+
+    const showHero = () => {
+        if (hero.classList.contains('hero-section--in-view')) return;
+        hero.classList.add('hero-section--in-view');
+        detach();
+    };
+
+    const detach = () => {
+        window.removeEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('wheel', showHero, { passive: true });
+        window.removeEventListener('touchmove', showHero, { passive: true });
+        window.removeEventListener('keydown', onKeyScroll);
+        if (fallbackId) {
+            clearTimeout(fallbackId);
+            fallbackId = null;
+        }
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        showHero();
+        return;
+    }
+
+    const initialY = window.scrollY;
+
+    function onScroll() {
+        if (Math.abs(window.scrollY - initialY) > 2) showHero();
+    }
+
+    function onKeyScroll(e) {
+        const keys = ['PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', ' ', 'Home', 'End'];
+        if (keys.includes(e.key)) showHero();
+    }
+
+    function bindAfterPaint() {
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('wheel', showHero, { passive: true });
+        window.addEventListener('touchmove', showHero, { passive: true });
+        window.addEventListener('keydown', onKeyScroll);
+        fallbackId = window.setTimeout(showHero, 12000);
+    }
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(bindAfterPaint);
+    });
+})();
